@@ -23,3 +23,4 @@
 - 11-20 23:23 테스트 통과: Vitest 32/32, Playwright 13/13(데스크톱 6, 정렬 검사 5, 모바일 2)
 - 11-20 23:33 운영 재배포(정렬 개선판) 후 라이브 검증 통과: curl 200·형식 정상, Playwright 13/13(콘솔 오류 0) docs/screenshots/live_desktop_globe.png, docs/screenshots/live_mobile_globe.png
 - 11-21 00:50 WIP 저장: 국경 다듬기(공유 경계 매끄럽게·10m 국경/강 맞추기), 해안 틈 채우기, 1368/1400 명·북원·여진 자체 영역, 한글 이름표·라틴 문자 검사, 연도 전환 크로스페이드(400ms), 단순화 실험(DP 1km 선택) docs/screenshots/progress/0040-after-eastasia-475.png, docs/screenshots/progress/0040-after-europe_me-475.png, docs/screenshots/progress/0040-after-fade-mid-475to700.png
+- 11-21 00:58 단순화 실험 정리(10가지 설정 표, 규칙: 해안 오차 p95≤1km·p99≤2.5km 중 gzip 최소 → Douglas-Peucker 1km), 빌드 적용 확인, 결정 D-022~D-027 기록 docs/screenshots/progress/0004-simplify-base-eastasia.png, docs/screenshots/progress/0004-simplify-dp-1k-eastasia.png, docs/screenshots/progress/0004-simplify-base-korea.png, docs/screenshots/progress/0004-simplify-dp-1k-korea.png
