@@ -1,6 +1,6 @@
 import type maplibregl from 'maplibre-gl';
 
-export interface LabelItem { id: string; lon: number; lat: number; text: string; cls?: string; pri: number; sub?: string }
+export interface LabelItem { id: string; lon: number; lat: number; text: string; cls?: string; pri: number; sub?: string; minZoom?: number }
 
 const DEG = Math.PI / 180;
 function angularDistance(lon1: number, lat1: number, lon2: number, lat2: number): number {
@@ -61,6 +61,7 @@ export class LabelLayer {
     const maxAng = Math.min(zoom < 3 ? 72 : 80, (3 * 360 * Math.max(W, H)) / (512 * 2 ** zoom));
     for (const it of this.items) {
       const e = this.els.get(it.id)!;
+      if (it.minZoom !== undefined && zoom < it.minZoom) { e.el.style.display = 'none'; continue; }
       if (angularDistance(c.lng, c.lat, it.lon, it.lat) > maxAng) { e.el.style.display = 'none'; continue; }
       const p = this.map.project([it.lon, it.lat]);
       if (p.x < -50 || p.y < -50 || p.x > W + 50 || p.y > H + 50) { e.el.style.display = 'none'; continue; }
@@ -70,8 +71,14 @@ export class LabelLayer {
         const tol = Math.max(0.05, (40 * 360) / (512 * 2 ** zoom));
         if (angularDistance(back.lng, back.lat, it.lon, it.lat) > tol) { e.el.style.display = 'none'; continue; }
       }
-      if (!e.w) { e.el.style.display = ''; e.w = e.el.offsetWidth || it.text.length * 12; e.h = e.el.offsetHeight || 20; }
-      const box: [number, number, number, number] = [p.x - e.w / 2, p.y - e.h, p.x + e.w / 2, p.y];
+      if (!e.w) {
+        // The .lbl anchor is 1px; measure the text span, which sits above the anchor.
+        e.el.style.display = '';
+        const t = e.el.querySelector<HTMLElement>('.txt');
+        e.w = (t?.offsetWidth || it.text.length * 12) + 6;
+        e.h = (t?.offsetHeight || 16) + 4 + (t ? parseFloat(getComputedStyle(t).bottom) || 0 : 15);
+      }
+      const box: [number, number, number, number] = [p.x - e.w / 2, p.y - e.h, p.x + e.w / 2, p.y + 4];
       const hit = placed.some((b) => !(box[2] < b[0] || box[0] > b[2] || box[3] < b[1] || box[1] > b[3]));
       if (hit) { e.el.style.display = 'none'; continue; }
       placed.push(box);

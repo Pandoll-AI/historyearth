@@ -3,26 +3,27 @@ export interface Camera { center: [number, number]; zoom: number; pitch?: number
 
 export interface EraButton { id: string; label: string; year: number; camera: Camera; note: string }
 
-const KOREA_VIEW: Camera = { center: [127.6, 37.6], zoom: 4.6, pitch: 35 };
-const NE_ASIA: Camera = { center: [126.5, 40.5], zoom: 3.9, pitch: 30 };
+// History cameras look nearly straight down so the atlas stays readable; tilt is one drag away.
+const KOREA_VIEW: Camera = { center: [127.6, 37.4], zoom: 5.1, pitch: 0 };
+const NE_ASIA: Camera = { center: [126.5, 39.5], zoom: 4.2, pitch: 0 };
 
 export const ERA_BUTTONS: EraButton[] = [
-  { id: 'gojoseon', label: '고조선', year: -300, camera: { center: [124.5, 40.5], zoom: 4.4, pitch: 30 }, note: '랴오허강과 대동강 사이를 중심으로 자리 잡은 우리 역사 첫 나라예요.' },
-  { id: 'samhan', label: '삼한', year: -50, camera: { center: [127.5, 36.2], zoom: 5.2, pitch: 35 }, note: '한강 남쪽에는 마한·진한·변한이라는 작은 나라들의 연맹이 있었어요.' },
+  { id: 'gojoseon', label: '고조선', year: -300, camera: { center: [124.5, 40.5], zoom: 4.4, pitch: 0 }, note: '랴오허강과 대동강 사이를 중심으로 자리 잡은 우리 역사 첫 나라예요.' },
+  { id: 'samhan', label: '삼한', year: -50, camera: { center: [127.5, 36.2], zoom: 5.2, pitch: 0 }, note: '한강 남쪽에는 마한·진한·변한이라는 작은 나라들의 연맹이 있었어요.' },
   { id: 'baekje', label: '백제 전성기', year: 371, camera: KOREA_VIEW, note: '근초고왕 때 백제는 황해도 남쪽까지 넓히고 바다 건너와도 활발히 교류했어요.' },
   { id: 'goguryeo', label: '고구려 전성기', year: 475, camera: NE_ASIA, note: '장수왕이 한성을 차지하며 고구려가 한강 유역까지 내려온 시기예요.' },
   { id: 'silla', label: '신라 전성기', year: 568, camera: KOREA_VIEW, note: '진흥왕이 한강 유역과 가야를 차지하며 신라가 크게 커졌어요.' },
   { id: 'unified', label: '통일신라', year: 735, camera: KOREA_VIEW, note: '삼국 통일 뒤 신라는 대동강에서 원산만까지를 다스렸어요.' },
-  { id: 'balhae', label: '발해', year: 830, camera: { center: [128.5, 42.5], zoom: 3.8, pitch: 30 }, note: '고구려를 이은 발해는 만주와 연해주까지 다스려 "해동성국"이라 불렸어요.' },
+  { id: 'balhae', label: '발해', year: 830, camera: { center: [128.5, 42.5], zoom: 3.8, pitch: 0 }, note: '고구려를 이은 발해는 만주와 연해주까지 다스려 "해동성국"이라 불렸어요.' },
   { id: 'later3', label: '후삼국', year: 910, camera: KOREA_VIEW, note: '신라가 약해지자 후백제와 후고구려가 일어나 다시 셋으로 나뉘었어요.' },
   { id: 'goryeo', label: '고려', year: 1100, camera: KOREA_VIEW, note: '고려는 압록강 하구에서 동해안 도련포까지 천리장성을 쌓았어요.' },
-  { id: 'yuan', label: '원 간섭기', year: 1300, camera: { center: [120, 42], zoom: 2.8, pitch: 20 }, note: '몽골 제국과 오랜 전쟁 뒤, 고려는 원나라의 간섭을 받았어요.' },
+  { id: 'yuan', label: '원 간섭기', year: 1300, camera: { center: [120, 42], zoom: 2.8, pitch: 0 }, note: '몽골 제국과 오랜 전쟁 뒤, 고려는 원나라의 간섭을 받았어요.' },
   { id: 'joseon1', label: '조선 전기', year: 1450, camera: KOREA_VIEW, note: '세종 때 4군 6진을 두어 압록강·두만강까지 국경을 넓혔어요.' },
   { id: 'joseon2', label: '조선 후기', year: 1750, camera: KOREA_VIEW, note: '두 번의 큰 전쟁 뒤, 농업과 상업이 다시 살아난 시기예요.' },
   { id: 'empire', label: '대한제국', year: 1900, camera: KOREA_VIEW, note: '고종이 황제 나라를 선포하고 근대 개혁을 추진했어요.' },
-  { id: 'colonial', label: '일제 강점기', year: 1930, camera: { center: [130, 37], zoom: 3.4, pitch: 25 }, note: '일본의 식민 지배 속에서도 독립운동이 국내외에서 이어졌어요.' },
+  { id: 'colonial', label: '일제 강점기', year: 1930, camera: { center: [130, 37], zoom: 3.4, pitch: 0 }, note: '일본의 식민 지배 속에서도 독립운동이 국내외에서 이어졌어요.' },
   { id: 'division', label: '광복·분단', year: 1953, camera: KOREA_VIEW, note: '광복 뒤 남북이 나뉘었고, 6·25 전쟁이 휴전선을 남겼어요.' },
-  { id: 'today', label: '오늘날', year: 9999, camera: { center: [127.8, 36.5], zoom: 4.4, pitch: 30 }, note: '지금의 대한민국과 세계를 봐요.' },
+  { id: 'today', label: '오늘날', year: 9999, camera: { center: [127.8, 36.5], zoom: 4.4, pitch: 0 }, note: '지금의 대한민국과 세계를 봐요.' },
 ];
 
 export interface Place {
@@ -75,4 +76,70 @@ export const DEEP_TIME: DeepTimeStop[] = [
   { label: '공룡의 멸종', ago: '약 6,600만 년 전', text: '큰 소행성 충돌 뒤 공룡 대부분이 사라지고 포유류가 늘어났어요.' },
   { label: '현생 인류 등장', ago: '약 30만 년 전', text: '아프리카에서 호모 사피엔스가 나타나 온 세계로 퍼져 나갔어요.' },
   { label: '농사의 시작', ago: '약 1만 2천 년 전', text: '빙하기가 끝나고 사람들이 곡식을 기르며 한곳에 모여 살기 시작했어요.' },
+];
+
+// Map labels for cities, rivers and mountains shown in history mode (own selection,
+// coordinates from public geography). `from`/`to` limit when a name is used.
+export interface GeoLabel { text: string; lon: number; lat: number; kind: 'city' | 'river' | 'mtn'; from?: number; to?: number; minZoom?: number }
+export const GEO_LABELS: GeoLabel[] = [
+  { minZoom: 3.2, text: '왕검성', lon: 125.75, lat: 39.02, kind: 'city', from: -300, to: -108 },
+  { text: '졸본', lon: 125.4, lat: 41.3, kind: 'city', from: -37, to: 2 },
+  { minZoom: 3.2, text: '국내성', lon: 126.18, lat: 41.13, kind: 'city', from: 3, to: 426 },
+  { minZoom: 3.2, text: '평양', lon: 125.75, lat: 39.02, kind: 'city', from: 427, to: 9999 },
+  { minZoom: 3.2, text: '위례성(한성)', lon: 127.12, lat: 37.52, kind: 'city', from: -18, to: 474 },
+  { text: '웅진', lon: 127.12, lat: 36.46, kind: 'city', from: 475, to: 537 },
+  { text: '사비', lon: 126.91, lat: 36.28, kind: 'city', from: 538, to: 660 },
+  { minZoom: 3.2, text: '금성(서라벌)', lon: 129.22, lat: 35.84, kind: 'city', from: -57, to: 935 },
+  { text: '경주', lon: 129.22, lat: 35.84, kind: 'city', from: 936, to: 9999 },
+  { text: '김해(금관가야)', lon: 128.88, lat: 35.23, kind: 'city', from: 42, to: 531 },
+  { text: '고령(대가야)', lon: 128.26, lat: 35.73, kind: 'city', from: 42, to: 561 },
+  { minZoom: 3.2, text: '상경', lon: 129.0, lat: 44.0, kind: 'city', from: 756, to: 926 },
+  { text: '완산주(전주)', lon: 127.15, lat: 35.82, kind: 'city', from: 892, to: 936 },
+  { text: '철원', lon: 127.31, lat: 38.2, kind: 'city', from: 905, to: 918 },
+  { minZoom: 3.2, text: '개경', lon: 126.55, lat: 37.97, kind: 'city', from: 919, to: 1393 },
+  { text: '강화도', lon: 126.45, lat: 37.7, kind: 'city', from: 1232, to: 1270 },
+  { minZoom: 3.2, text: '한양', lon: 126.98, lat: 37.57, kind: 'city', from: 1394, to: 1909 },
+  { minZoom: 3.2, text: '경성', lon: 126.98, lat: 37.57, kind: 'city', from: 1910, to: 1945 },
+  { minZoom: 3.2, text: '서울', lon: 126.98, lat: 37.57, kind: 'city', from: 1946, to: 9999 },
+  { text: '부산', lon: 129.04, lat: 35.1, kind: 'city', from: 1400, to: 9999 },
+  { text: '의주', lon: 124.53, lat: 40.2, kind: 'city', from: 1100, to: 1945 },
+  { text: '장안', lon: 108.94, lat: 34.26, kind: 'city', from: -202, to: 904 },
+  { text: '시안', lon: 108.94, lat: 34.26, kind: 'city', from: 1950, to: 9999 },
+  { text: '뤄양(낙양)', lon: 112.45, lat: 34.62, kind: 'city', from: -770, to: 937 },
+  { text: '카이펑(개봉)', lon: 114.31, lat: 34.8, kind: 'city', from: 960, to: 1127 },
+  { text: '임안(항저우)', lon: 120.16, lat: 30.27, kind: 'city', from: 1127, to: 1279 },
+  { text: '대도', lon: 116.4, lat: 39.9, kind: 'city', from: 1272, to: 1368 },
+  { text: '베이징', lon: 116.4, lat: 39.9, kind: 'city', from: 1403, to: 9999 },
+  { text: '난징', lon: 118.8, lat: 32.06, kind: 'city', from: 1368, to: 9999 },
+  { text: '상하이', lon: 121.47, lat: 31.23, kind: 'city', from: 1843, to: 9999 },
+  { text: '선양(심양)', lon: 123.43, lat: 41.8, kind: 'city', from: 1625, to: 9999 },
+  { text: '카라코룸', lon: 102.83, lat: 47.2, kind: 'city', from: 1220, to: 1388 },
+  { text: '울란바토르', lon: 106.9, lat: 47.92, kind: 'city', from: 1924, to: 9999 },
+  { text: '헤이조쿄(나라)', lon: 135.8, lat: 34.68, kind: 'city', from: 710, to: 783 },
+  { text: '헤이안쿄(교토)', lon: 135.77, lat: 35.01, kind: 'city', from: 794, to: 1868 },
+  { text: '에도', lon: 139.69, lat: 35.69, kind: 'city', from: 1603, to: 1867 },
+  { text: '도쿄', lon: 139.69, lat: 35.69, kind: 'city', from: 1868, to: 9999 },
+  { text: '블라디보스토크', lon: 131.9, lat: 43.12, kind: 'city', from: 1860, to: 9999 },
+  { text: '타이베이', lon: 121.56, lat: 25.04, kind: 'city', from: 1886, to: 9999 },
+  { text: '압록강', lon: 125.2, lat: 40.62, kind: 'river' },
+  { text: '두만강', lon: 129.95, lat: 42.75, kind: 'river' },
+  { text: '청천강', lon: 125.8, lat: 39.75, kind: 'river' },
+  { text: '대동강', lon: 126.3, lat: 39.25, kind: 'river' },
+  { text: '임진강', lon: 127.05, lat: 38.2, kind: 'river' },
+  { text: '한강', lon: 127.4, lat: 37.48, kind: 'river' },
+  { text: '금강', lon: 127.35, lat: 36.3, kind: 'river' },
+  { text: '낙동강', lon: 128.5, lat: 35.95, kind: 'river' },
+  { text: '영산강', lon: 126.65, lat: 35.0, kind: 'river' },
+  { text: '섬진강', lon: 127.45, lat: 35.25, kind: 'river' },
+  { text: '랴오허', lon: 122.6, lat: 41.9, kind: 'river' },
+  { text: '쑹화강', lon: 126.6, lat: 45.6, kind: 'river' },
+  { text: '헤이룽강(아무르강)', lon: 127.5, lat: 49.8, kind: 'river' },
+  { text: '황허', lon: 113.5, lat: 35.0, kind: 'river' },
+  { text: '창장(양쯔강)', lon: 115.5, lat: 30.2, kind: 'river' },
+  { text: '화이허', lon: 116.5, lat: 32.8, kind: 'river' },
+  { text: '백두산', lon: 128.08, lat: 42.0, kind: 'mtn' },
+  { text: '낭림산맥', lon: 126.85, lat: 40.6, kind: 'mtn' },
+  { text: '태백산맥', lon: 128.85, lat: 37.3, kind: 'mtn' },
+  { text: '소백산맥', lon: 127.9, lat: 36.0, kind: 'mtn' },
+  { text: '한라산', lon: 126.53, lat: 33.36, kind: 'mtn' },
 ];

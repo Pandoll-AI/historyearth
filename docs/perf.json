@@ -1,14 +1,14 @@
 {
   "desktop_globe": {
-    "readyMs": 8641,
-    "fpsIdle": 4.4,
+    "readyMs": 12965,
+    "fpsIdle": 2.2,
     "note": "headless Chromium + SwiftShader (software GL, no GPU)"
   },
   "desktop_particles": {
-    "fpsMonsoon": 2.4,
+    "fpsMonsoon": 2.2,
     "note": "software GL"
   },
   "mobile_ready": {
-    "readyMs": 7245
+    "readyMs": 12367
   }
 }

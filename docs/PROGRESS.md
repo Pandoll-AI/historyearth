@@ -14,3 +14,6 @@
 - 11-20 22:12 연도 막대 동작 확인(1450년 조선, 한반도로 비행) docs/screenshots/progress/2212-timeline-1450.png
 - 11-20 22:12 휴대폰 세로·가로 화면 확인(메뉴 접기, 시대 버튼) docs/screenshots/progress/2212-mobile-era.png
 - 11-20 22:12 테스트 통과: Vitest 32/32, Playwright 9/9(1건은 타일 오류 로그로 재시도 → 지도 타일 오류를 경고로 처리하고 재확인 통과)
+- 11-20 22:29 지도 품질 개선 전 화면 기록(475·700·1450·2026, 동아시아) docs/screenshots/progress/2229-map-quality-before-475.png, 2229-map-quality-before-700.png, 2229-map-quality-before-1450.png, 2229-map-quality-before-2026.png
+- 11-20 22:42 지도 품질 개선: 10m 해안선 자르기, 한반도 경계 다시 그림(강·산맥 기준), Blue Marble+음영 기복, 진한 색면·이중 국경선·파란 강·도시/강 라벨, 위에서 보는 기본 카메라 docs/screenshots/progress/2242-map-quality-after-475.png, 2242-map-quality-after-700.png, 2242-map-quality-after-1450.png, 2242-map-quality-after-2026.png, 2242-map-quality-after-korea-475.png
+- 11-20 22:55 개선 후 테스트 통과: Vitest 32/32, Playwright 8/8(데스크톱 6, 모바일 2)

@@ -10,9 +10,17 @@ import { KOREA, LINE_38, LINE_DMZ } from './korea-polygons.mjs';
 const RAW = 'data-raw';
 const OUT = 'public/data';
 fs.mkdirSync(path.join(OUT, 'borders'), { recursive: true });
-const ms = (args) => execFileSync('npx', ['mapshaper', ...args], { stdio: ['ignore', 'pipe', 'inherit'] });
+const ms = (args) => execFileSync('npx', ['mapshaper', ...args], { stdio: ['ignore', 'pipe', 'inherit'], maxBuffer: 1 << 29 });
 const round = (v) => Math.round(v * 100) / 100;
-const PALETTE = ['#c98a5a', '#7fa36b', '#6f8fc4', '#c7b35a', '#a87cb8', '#5fb0a8', '#c96f6f', '#8a9c5a', '#b88f6a', '#6aa0c9', '#b9718f', '#88a8a0'];
+const round3 = (v) => Math.round(v * 1000) / 1000;
+// Saturated atlas palette (distinct hues, readable over relief)
+const PALETTE = ['#e07b39', '#5fae4e', '#4a7fd6', '#e3c03a', '#a160d0', '#2fb3a6', '#d9534f', '#94b83a', '#c98a4b', '#3fa3df', '#d0619a', '#7f9fd9', '#e39b5a', '#53c27f'];
+const TMP = fs.mkdtempSync('/tmp/he-data-');
+// Detailed land mask (Natural Earth 10m land, public domain): coastlines for clipping
+const LAND = path.join(TMP, 'land.json');
+ms(['-i', path.join(RAW, 'ne_10m_land.geojson'), '-simplify', 'interval=1500', 'keep-shapes', '-filter-islands', 'min-area=30km2', '-o', 'format=geojson', 'precision=0.001', LAND]);
+const LAND_KR = path.join(TMP, 'land-kr.json');
+ms(['-i', path.join(RAW, 'ne_10m_land.geojson'), '-clip', 'bbox=115,30,140,50', '-simplify', 'interval=800', 'keep-shapes', '-filter-islands', 'min-area=40km2', '-dissolve', '-o', 'format=geojson', 'precision=0.001', LAND_KR]);
 const hash = (s) => { let h = 0; for (const ch of s) h = (h * 31 + ch.codePointAt(0)) >>> 0; return h; };
 const KOREAN_NAMES = new Set(['Koguryo', 'Paekche', 'Silla', 'Gaya', 'Balhae', 'Korea', 'Paleo-Koreans', 'Korea (USA)', 'Korea (USSR)', 'Gojoseon', 'Joseon', 'Goryeo', 'Koryo', 'Puyo', 'Buyeo', 'Chin', 'Mahan', 'Jinhan', 'Byeonhan', 'Lelang']);
 
@@ -26,18 +34,26 @@ function labelPoint(geom) {
   const p = largestPolygon(geom);
   try { return turf.pointOnFeature(p).geometry.coordinates; } catch { return turf.centroid(p).geometry.coordinates; }
 }
-function roundGeom(g) {
-  const r = (c) => (typeof c[0] === 'number' ? [round(c[0]), round(c[1])] : c.map(r));
+function roundGeom(g, fn = round) {
+  const r = (c) => (typeof c[0] === 'number' ? [fn(c[0]), fn(c[1])] : c.map(r));
   return { type: g.type, coordinates: r(g.coordinates) };
 }
+
+// Name corrections where a source snapshot carries over an older name.
+const FIXES = [
+  { n: 'Sui Empire', from: 618, to: 907, k: '당' },
+  { n: 'Great Khanate', from: 1368, to: 1500, k: '명·북원' },
+  { n: 'Shogun Japan (Kamakura)', from: 1336, to: 1573, k: '일본(무로마치 막부)' },
+];
 
 // 1) Historical world snapshots (aourednik/historical-basemaps, GPL-3.0)
 const files = fs.readdirSync(RAW).filter((f) => /^world_(bc)?\d+\.geojson$/.test(f));
 const years = [];
+const snapshots = new Map();
 for (const f of files) {
   const tag = f.match(/^world_(.+)\.geojson$/)[1];
   const year = tag.startsWith('bc') ? -Number(tag.slice(2)) : Number(tag);
-  const simplified = JSON.parse(ms(['-i', path.join(RAW, f), '-filter', 'NAME != null', '-simplify', '5%', 'keep-shapes', '-clean', '-o', 'format=geojson', 'precision=0.01', '-']).toString());
+  const simplified = JSON.parse(ms(['-i', path.join(RAW, f), '-filter', 'NAME != null', '-simplify', '5%', 'keep-shapes', '-clean', 'snap-interval=0.01', '-clip', LAND, '-clean', '-filter-slivers', 'min-area=20km2', '-o', 'format=geojson', 'precision=0.005', '-']).toString());
   const feats = [];
   for (const ft of simplified.features) {
     if (!ft.geometry) continue;
@@ -45,14 +61,14 @@ for (const f of files) {
     const area = turf.area(ft) / 1e6;
     const [lx, ly] = labelPoint(ft.geometry);
     const kr = KOREAN_NAMES.has(n) || (lx > 124 && lx < 131.5 && ly > 33 && ly < 43.2) ? 1 : 0;
-    feats.push({ type: 'Feature', geometry: roundGeom(ft.geometry), properties: { n, k: nameKo(n), s: nameKo(subj), a: Math.round(area), lx: round(lx), ly: round(ly), kr, c: PALETTE[hash(subj) % PALETTE.length] } });
+    // Fix a known naming slip in the source: China around 700 is Tang, not Sui.
+    const kName = FIXES.find((x) => x.n === n && year >= x.from && year <= x.to)?.k ?? nameKo(n);
+    feats.push({ type: 'Feature', geometry: roundGeom(ft.geometry, round3), properties: { n, k: kName, s: nameKo(subj), a: Math.round(area), lx: round(lx), ly: round(ly), kr, c: PALETTE[hash(subj) % PALETTE.length] } });
   }
-  fs.writeFileSync(path.join(OUT, 'borders', `${year}.json`), JSON.stringify({ type: 'FeatureCollection', features: feats }));
+  snapshots.set(year, feats);
   years.push(year);
 }
 years.sort((a, b) => a - b);
-fs.writeFileSync(path.join(OUT, 'borders', 'index.json'), JSON.stringify({ years }));
-console.log('snapshots', years.length);
 
 // 2) Modern borders + labels (Natural Earth, public domain)
 const innerRaw = JSON.parse(ms(['-i', path.join(RAW, 'ne_50m_admin_0_countries.geojson'), '-simplify', '20%', 'keep-shapes', '-innerlines', '-o', 'format=geojson', 'precision=0.01', '-']).toString());
@@ -65,21 +81,17 @@ const modernLabels = ctry.features.filter((f) => f.properties.LABELRANK <= 4).ma
 }));
 fs.writeFileSync(path.join(OUT, 'modern-labels.json'), JSON.stringify({ type: 'FeatureCollection', features: modernLabels }));
 
-// 3) Major rivers (Natural Earth, public domain)
-const rivers = JSON.parse(ms(['-i', path.join(RAW, 'ne_50m_rivers_lake_centerlines.geojson'), '-filter', 'scalerank <= 5 && featurecla == "River"', '-simplify', '30%', '-o', 'format=geojson', 'precision=0.01', '-']).toString());
-rivers.features.forEach((f) => { f.properties = { n: f.properties.name_ko || f.properties.name || '' }; });
+// 3) Rivers (Natural Earth 10m, public domain): major rivers worldwide, more detail in East Asia
+const riverExpr = '(scalerank <= 4) || (scalerank <= 9 && $.bounds[0] > 100 && $.bounds[2] < 145 && $.bounds[1] > 20 && $.bounds[3] < 55)';
+const rivers = JSON.parse(ms(['-i', path.join(RAW, 'ne_10m_rivers_lake_centerlines.geojson'), '-filter', `featurecla == "River" && (${riverExpr})`, '-simplify', 'interval=2000', '-o', 'format=geojson', 'precision=0.005', '-']).toString());
+rivers.features.forEach((f) => { f.properties = { n: nameKo(f.properties.name || ''), r: f.properties.scalerank }; });
 fs.writeFileSync(path.join(OUT, 'rivers.json'), JSON.stringify(rivers));
 console.log('rivers', rivers.features.length);
 
 // 4) Korean polities overlay (own polygons clipped to land)
-const landAll = JSON.parse(fs.readFileSync(path.join(RAW, 'ne_50m_land.geojson')));
-const box = turf.bboxPolygon([115, 30, 140, 50]);
-let land = null;
-for (const f of landAll.features) {
-  if (!turf.booleanIntersects(f, box)) continue;
-  const c = turf.intersect(turf.featureCollection([f, box]));
-  if (c) land = land ? turf.union(turf.featureCollection([land, c])) : c;
-}
+const landKr = JSON.parse(fs.readFileSync(LAND_KR));
+const landFeats = landKr.features || landKr.geometries.map((g) => turf.feature(g));
+let land = landFeats.length === 1 ? landFeats[0] : turf.union(turf.featureCollection(landFeats));
 land = turf.truncate(land, { precision: 3 });
 const halfPlane = (line, north) => turf.polygon([[...line, north ? [131, 50] : [131, 30], north ? [123.5, 50] : [123.5, 30], line[0]]]);
 const CLIPS = { south38: halfPlane(LINE_38, false), north38: halfPlane(LINE_38, true), southDmz: halfPlane(LINE_DMZ, false), northDmz: halfPlane(LINE_DMZ, true) };
@@ -108,7 +120,7 @@ for (let i = 0; i < bounds.length - 1; i++) {
     if (g) g = turf.truncate(g, { precision: 3 });
     if (g) taken = turf.truncate(taken ? turf.union(turf.featureCollection([taken, g])) : g, { precision: 3 });
     if (!g || turf.area(g) < 2e8) continue;
-    const geom = roundGeom(g.geometry);
+    const geom = roundGeom(g.geometry, round3);
     const key = k.id + JSON.stringify(geom);
     seen.add(k.id);
     const prev = open.get(k.id);
@@ -120,3 +132,29 @@ for (let i = 0; i < bounds.length - 1; i++) {
 }
 fs.writeFileSync(path.join(OUT, 'korea.json'), JSON.stringify({ type: 'FeatureCollection', features: out }));
 console.log('korea features', out.length);
+
+// 5) Write world snapshots. Where the own Korean overlay is shown, cut the world
+// polygons away so the two layers never double-overlap.
+for (const [i, year] of years.entries()) {
+  const end = (years[i + 1] ?? 10000) - 1;
+  const kr = out.filter((f) => f.properties.from <= end && f.properties.to >= year);
+  let mask = null;
+  for (const f of kr) mask = mask ? turf.union(turf.featureCollection([mask, f])) : f;
+  const mbox = mask && turf.bbox(mask);
+  const feats = [];
+  for (const ft of snapshots.get(year)) {
+    if (mask && ft.properties.kr !== 1) {
+      const b = turf.bbox(ft);
+      if (!(b[2] < mbox[0] || b[0] > mbox[2] || b[3] < mbox[1] || b[1] > mbox[3])) {
+        const d = turf.difference(turf.featureCollection([ft, mask]));
+        if (!d || turf.area(d) < 2e8) continue;
+        ft.geometry = roundGeom(d.geometry, round3);
+      }
+    }
+    feats.push(ft);
+  }
+  fs.writeFileSync(path.join(OUT, 'borders', `${year}.json`), JSON.stringify({ type: 'FeatureCollection', features: feats }));
+}
+fs.writeFileSync(path.join(OUT, 'borders', 'index.json'), JSON.stringify({ years }));
+console.log('snapshots', years.length);
+fs.rmSync(TMP, { recursive: true, force: true });

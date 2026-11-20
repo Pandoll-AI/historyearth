@@ -8,7 +8,7 @@ import { drawHeat, drawNight, setLayerVisible } from './map/overlays';
 import { BATTLES, battleFrame, clearBattle, stageAt, type Battle } from './map/battles';
 import { Store, defaultState, type AppState, type LayerId } from './core/store';
 import { BorderData } from './core/borders';
-import { ERA_BUTTONS, PLACES, DEEP_TIME, type Camera } from './core/content';
+import { ERA_BUTTONS, PLACES, DEEP_TIME, GEO_LABELS, type Camera } from './core/content';
 import { search, type PolityLabel, type SearchHit } from './core/search';
 import { currentYear, formatYear, koreanEra, normalizeYear, sliderToYear, yearToSlider, MIN_YEAR } from './core/time';
 import { monsoonJanuary, monsoonJuly, siberianHigh, springWesterlies, SOURCES, RAIN_ZONES } from './climate/winds';
@@ -16,7 +16,9 @@ import { TEMP_MAX, TEMP_MIN, tempColor, type TempGrid } from './climate/temperat
 
 const $ = <T extends HTMLElement = HTMLElement>(id: string): T => document.getElementById(id) as T;
 const NOW = currentYear();
-const KOREA_CAM: Camera = { center: [127.6, 37.0], zoom: 5.2, pitch: 45, bearing: 0 };
+const KOREA_CAM: Camera = { center: [127.6, 37.4], zoom: 5.2, pitch: 0, bearing: 0 };
+// Default history view: East Asia seen from nearly straight above.
+const HISTORY_CAM: Camera = { center: [120, 37], zoom: window.innerWidth < 760 ? 2.7 : 3.4, pitch: 0, bearing: 0 };
 const WORLD_CAM: Camera = { center: [115, 25], zoom: 1.6, pitch: 0, bearing: 0 };
 
 const params = new URLSearchParams(location.search);
@@ -48,7 +50,7 @@ async function applyBorders(year: number): Promise<void> {
   const kr = data.koreaAt(year);
   (map.getSource('korea') as any)?.setData({ type: 'FeatureCollection', features: kr });
   const hideKr = kr.length > 0;
-  for (const id of ['hist-fill', 'hist-line']) map.setFilter(id, hideKr ? ['!=', ['get', 'kr'], 1] : null);
+  for (const id of ['hist-fill', 'hist-line', 'hist-casing']) map.setFilter(id, hideKr ? ['!=', ['get', 'kr'], 1] : null);
   if (snap !== appliedSnapshot) {
     const token = ++loadToken;
     const fc = await data.load(snap);
@@ -60,6 +62,7 @@ async function applyBorders(year: number): Promise<void> {
   updateHistLabels(year);
 }
 
+const inKorea = (lon: number, lat: number): boolean => lon > 124 && lon < 131 && lat > 33 && lat < 43;
 function updateHistLabels(year: number): void {
   const kr = data.koreaAt(year);
   const items: LabelItem[] = kr.map((f) => ({ id: `kr-${f.properties.id}`, lon: f.properties.lx, lat: f.properties.ly, text: f.properties.k, cls: 'kr', pri: 1e9 }));
@@ -73,6 +76,10 @@ function updateHistLabels(year: number): void {
     const band = /수렵|유목|농경|어로|문화|민$|족$/.test(p.k);
     items.push({ id: `h-${key}`, lon: p.lx, lat: p.ly, text: p.k, cls: band ? 'band' : '', pri: p.a });
     if (items.length > 260) break;
+  }
+  for (const [i, g] of GEO_LABELS.entries()) {
+    if ((g.from ?? -9999) > year || (g.to ?? 9999) < year) continue;
+    items.push({ id: `g-${i}`, lon: g.lon, lat: g.lat, text: g.text, cls: g.kind, pri: g.kind === 'city' ? 4e5 : g.kind === 'river' ? 2e5 : 1.5e5, minZoom: g.minZoom ?? (inKorea(g.lon, g.lat) ? 4.6 : 3.2) });
   }
   if (store.get().modernBorders) items.push(...modernLabelItems);
   histLabels.setItems(items);
@@ -118,8 +125,8 @@ function applyLighting(s: AppState): void {
     setLayerVisible(map, 'night', true);
     nightTimer = window.setInterval(() => drawNight(map, new Date(), before), 60000);
   } else setLayerVisible(map, 'night', false);
-  map.setPaintProperty('sat', 'raster-brightness-max', s.lighting === 'night' ? 0.32 : 1);
-  map.setPaintProperty('shade', 'hillshade-exaggeration', s.lighting === 'night' ? 0.15 : 0.35);
+  for (const id of ['sat', 'bm']) map.setPaintProperty(id, 'raster-brightness-max', s.lighting === 'night' ? 0.32 : 1);
+  map.setPaintProperty('shade', 'hillshade-exaggeration', s.lighting === 'night' ? 0.2 : 0.55);
 }
 
 // ---------- climate layers ----------
@@ -244,9 +251,9 @@ function renderLayerPanel(s: AppState): void {
 let heatTouched = false;
 function applyLayer(s: AppState, prev: AppState | null): void {
   const geo = s.layer === 'geo';
-  for (const id of ['hist-fill', 'hist-line', 'korea-fill', 'korea-line']) setLayerVisible(map, id, geo);
+  for (const id of ['hist-fill', 'hist-line', 'hist-casing', 'korea-fill', 'korea-line', 'korea-casing']) setLayerVisible(map, id, geo);
   histLabels.setVisible(geo || s.modernBorders);
-  setLayerVisible(map, 'rivers', s.layer === 'monsoon');
+  setLayerVisible(map, 'rivers', geo || s.layer === 'monsoon');
   setLayerVisible(map, 'jet', s.layer === 'dust');
   if (s.layer === 'temp' && tempGrid) {
     const touched = heatTouched || (prev != null && prev.tempThreshold !== s.tempThreshold);
@@ -501,7 +508,7 @@ async function boot(): Promise<void> {
   applyLighting(s);
   applyLayer(s, null);
   $('loading').classList.add('done');
-  window.setTimeout(() => fly({ center: [122, 37], zoom: 2.6, pitch: 20 }, 3500), 300);
+  window.setTimeout(() => fly(HISTORY_CAM, 3500), 300);
   document.body.dataset.ready = '1';
 }
 
