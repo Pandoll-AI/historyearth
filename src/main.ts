@@ -18,7 +18,7 @@ const $ = <T extends HTMLElement = HTMLElement>(id: string): T => document.getEl
 const NOW = currentYear();
 const KOREA_CAM: Camera = { center: [127.6, 37.4], zoom: 5.2, pitch: 0, bearing: 0 };
 // Default history view: East Asia seen from nearly straight above.
-const HISTORY_CAM: Camera = { center: [120, 37], zoom: window.innerWidth < 760 ? 2.7 : 3.4, pitch: 0, bearing: 0 };
+const HISTORY_CAM: Camera = { center: [120, 37], zoom: Math.min(window.innerWidth, window.innerHeight) < 600 ? 2.7 : 3.4, pitch: 0, bearing: 0 };
 const WORLD_CAM: Camera = { center: [115, 25], zoom: 1.6, pitch: 0, bearing: 0 };
 
 const params = new URLSearchParams(location.search);
@@ -513,6 +513,28 @@ async function boot(): Promise<void> {
 }
 
 // Expose a small handle for automated tests.
+// ---------- overlay layout ----------
+// Panels and map controls are positioned from the live size of the HUD blocks (CSS variables),
+// so nothing overlaps when text wraps or the viewport changes.
+function updateLayoutVars(): void {
+  const root = document.documentElement.style;
+  const vis = (el: HTMLElement | null): boolean => !!el && el.offsetParent !== null && getComputedStyle(el).position !== 'fixed';
+  const bottom = $('bottom').getBoundingClientRect();
+  root.setProperty('--bottom-h', `${Math.ceil(window.innerHeight - bottom.top)}px`);
+  const tl = $('hud-tl').getBoundingClientRect();
+  const trEl = $('hud-tr');
+  const tr = vis(trEl) ? trEl.getBoundingClientRect() : $('menu-btn').getBoundingClientRect();
+  root.setProperty('--tr-h', `${Math.ceil(tr.bottom)}px`);
+  root.setProperty('--top-h', `${Math.ceil(Math.max(tl.bottom, vis(trEl) && tr.left < 16 + 400 + 8 ? tr.bottom : 0))}px`);
+  const ctrl = document.querySelector<HTMLElement>('.maplibregl-ctrl-bottom-right');
+  root.setProperty('--ctrl-h', `${Math.ceil(ctrl?.offsetHeight ?? 0)}px`);
+}
+const layoutObserver = new ResizeObserver(() => updateLayoutVars());
+for (const id of ['bottom', 'hud-tl', 'hud-tr', 'menu-btn']) layoutObserver.observe($(id));
+window.addEventListener('resize', updateLayoutVars);
+map.once('load', () => { const c = document.querySelector('.maplibregl-ctrl-bottom-right'); if (c) layoutObserver.observe(c); updateLayoutVars(); });
+updateLayoutVars();
+
 (window as any).__he = { store, map, particles, histLabels, data };
 boot().catch((e) => {
   console.error(e);

@@ -1,7 +1,7 @@
 {
   "desktop_globe": {
-    "readyMs": 12965,
-    "fpsIdle": 2.2,
+    "readyMs": 13897,
+    "fpsIdle": 1.8,
     "note": "headless Chromium + SwiftShader (software GL, no GPU)"
   },
   "desktop_particles": {
@@ -9,6 +9,18 @@
     "note": "software GL"
   },
   "mobile_ready": {
-    "readyMs": 12367
+    "readyMs": 12448
+  },
+  "live_desktop_globe": {
+    "readyMs": 21904,
+    "fpsIdle": 2.3,
+    "note": "headless Chromium + SwiftShader (software GL, no GPU)"
+  },
+  "live_desktop_particles": {
+    "fpsMonsoon": 2.3,
+    "note": "software GL"
+  },
+  "live_mobile_ready": {
+    "readyMs": 13379
   }
 }
