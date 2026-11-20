@@ -9,7 +9,7 @@ repo:
 deploy: https://historyearth.vercel.app
 run: npm run dev
 needs: Node 20+, Vercel(emergency-lee) 커넥터 배포
-next: GitHub private 저장소 푸시(권한 확인 중)
+next: SJ가 Pandoll-AI/historyearth 빈 private 저장소 생성+Cursor GitHub App 접근 허용 후 푸시
 created: 2026-11-20
 updated: 2026-11-21
 ---
