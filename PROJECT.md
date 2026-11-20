@@ -1,46 +1,52 @@
 ---
 name: historyearth
 title: 역사 지구본
-status: 아이디어
+status: 테스트
 priority: 보통
-progress: 0
-stack: 
+progress: 80
+stack: Vite, TypeScript, MapLibre GL(globe+terrain), Vitest, Playwright
 repo: 
 deploy: 
-run: 
-needs: 
-next: 목표와 범위 정하기
+run: npm run dev
+needs: Node 20+, Vercel(emergency-lee) 커넥터 배포
+next: 푸시·배포 후 라이브 검증
 created: 2026-11-20
 updated: 2026-11-20
 ---
 
-# historyearth
+# historyearth — 역사 지구본
 
 ## 목표
-- 무엇을, 누구를 위해 만드는지
+- 수업용 웹 3D 역사 지구본. 연도 막대로 세계·한반도 국경을 바꾸고, 몬순·황사·기온 레이어와 전투 장면으로 지리·역사를 함께 보여 준다.
+- 참고 영상(Threads @history_jongile)의 기능·흐름만 참고한 독자 구현. 명세: `/workspace/charlie/historyearth-spec.md`
 
 ## 실행 구조
 | 단계 | 명령 | 비고 |
 |---|---|---|
-| 설치 | | |
-| 개발 실행 | | |
-| 테스트 | | |
-| 빌드 | | |
-| 배포 | | |
+| 설치 | `npm install` | Node 20+ |
+| 개발 실행 | `npm run dev` | Vite |
+| 테스트 | `npm test` / `npx playwright test` | Vitest 32개, Playwright 8개(데스크톱 6, 모바일 2). `E2E_URL=https://historyearth.vercel.app`로 라이브 확인(`live_*` 스크린샷) |
+| 빌드 | `npm run build` | `dist/` 정적 파일 |
+| 데이터 | `bash scripts/fetch-raw.sh && npm run data` | `node scripts/fetch-temperature.mjs`(기온 격자) |
+| 배포 | Vercel 커넥터 upload_file + create_deployment | 팀 emergency-lee, 프로젝트 historyearth |
 
 구성 요소와 데이터 흐름:
-- 
+- `src/main.ts` UI·상태 연결, `src/core/*` 연도·시대·검색·데이터 로더(순수 함수, 단위 테스트 대상)
+- `src/map/*` MapLibre 지구본(위성·지형·대기), DOM 라벨, 입자 캔버스, 밤/기온 래스터, 전투 장면
+- `public/data/` 시점별 국경(46개), 한국사 영역(korea.json), 현대 국경·강, 기온 격자
 
 ## 필요사항
-- 환경변수: (`.env.example`에 키 이름만 적는다)
-- 계정/연결: 
-- 외부 의존성: 
+- 환경변수: 없음
+- 계정/연결: 없음(무키 공개 타일: EOX, AWS Terrain, Open-Meteo)
+- 외부 의존성: 위 타일 서버의 가용성
 
 ## 다음 할 일
-- [ ] 목표와 범위 정하기
+- [ ] SJ 실기기(태블릿·휴대폰)에서 FPS·터치 확인
+- [ ] 필요하면 시대별 전투·사건 추가, 아주 먼 옛날 대륙 지도
 
 ## 이슈
-- 
+- 박스에는 GPU가 없어 FPS는 소프트웨어 렌더링 값(2~5fps)만 측정됨
 
 ## 진행 로그
 - 2026-11-20 프로젝트 생성
+- 2026-11-20 지구본·타임라인·레이어 4종·전투 2곳·검색·모바일 구현, Vitest 32개 통과

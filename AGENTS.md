@@ -5,3 +5,6 @@
 - 테스트나 빌드 명령이 있으면 변경 뒤에 돌려서 통과를 확인한다.
 - `projects/` 밖의 파일은 요청 없이 건드리지 않는다.
 - 작업을 끝내면 `PROJECT.md`의 진행 로그, 다음 할 일, status/progress/next/updated를 갱신한다.
+- (historyearth) 설명 문구·한국사 영역은 직접 작성한다. 참고 영상의 코드·데이터·문구·이미지를 가져오지 않는다.
+- 결정은 `docs/DECISIONS.md`(D-0xx), 진행은 `docs/PROGRESS.md`에 한 줄씩 적는다.
+- 데이터 원본은 `data-raw/`(커밋 안 함)에 받고 `npm run data`로 `public/data/`를 만든다.

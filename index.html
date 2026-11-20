@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>역사 지구본</title>
+  <meta name="description" content="연도를 움직이며 국경과 기후를 3D 지구본에서 살펴보는 수업용 웹 앱" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#05070d" />
+</head>
+<body>
+  <div id="map"></div>
+  <div id="overlay"></div>
+  <header id="hud">
+    <div id="hud-tl">
+      <div id="year" aria-live="polite">-</div>
+      <div class="badges">
+        <span id="era-badge" class="badge era">-</span>
+        <span id="seoul-badge" class="badge">서울 --:--</span>
+      </div>
+      <div id="era-note" class="note"></div>
+    </div>
+    <button id="menu-btn" class="btn icon" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    <nav id="hud-tr">
+      <div class="row">
+        <div class="search-wrap">
+          <input id="search" type="search" placeholder="옛날 찾기 (장소·사건)" aria-label="옛날 찾기" autocomplete="off" />
+          <div id="search-results" class="dropdown" role="listbox" hidden></div>
+        </div>
+        <button id="browse-btn" class="btn">검색 보기</button>
+        <button id="modern-btn" class="btn" aria-pressed="false">지금 나라</button>
+      </div>
+      <div class="row">
+        <button id="korea-btn" class="btn">한반도로</button>
+        <button id="world-btn" class="btn">지구 전체</button>
+        <label class="sel"><span>조명</span>
+          <select id="light-sel" aria-label="낮/밤 조명">
+            <option value="day">낮(밝게)</option>
+            <option value="real">지금 낮·밤</option>
+            <option value="night">밤</option>
+          </select></label>
+        <label class="sel"><span>레이어</span>
+          <select id="layer-sel" aria-label="레이어">
+            <option value="geo">지리·역사</option>
+            <option value="monsoon">몬순(계절풍)</option>
+            <option value="dust">황사</option>
+            <option value="temp">기온</option>
+          </select></label>
+        <label class="sel mobile-only"><span>지형 과장</span><input id="exag-m" type="range" min="1" max="5" step="0.5" value="2" aria-label="지형 과장 배율" /></label>
+      </div>
+    </nav>
+  </header>
+  <aside id="panel" class="panel" hidden></aside>
+  <aside id="browse" class="panel browse" hidden></aside>
+  <footer id="bottom">
+    <div id="eras" class="eras" role="toolbar" aria-label="시대 바로가기"></div>
+    <div class="timeline">
+      <button id="play-btn" class="btn icon" aria-label="연도 자동 재생">▶</button>
+      <div class="track">
+        <input id="slider" type="range" aria-label="연도 선택" />
+        <div id="ticks" class="ticks"></div>
+      </div>
+    </div>
+  </footer>
+  <div id="loading">지구본을 준비하고 있어요…</div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

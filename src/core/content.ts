@@ -1,0 +1,78 @@
+// All explanatory text below is original writing for this app.
+export interface Camera { center: [number, number]; zoom: number; pitch?: number; bearing?: number }
+
+export interface EraButton { id: string; label: string; year: number; camera: Camera; note: string }
+
+const KOREA_VIEW: Camera = { center: [127.6, 37.6], zoom: 4.6, pitch: 35 };
+const NE_ASIA: Camera = { center: [126.5, 40.5], zoom: 3.9, pitch: 30 };
+
+export const ERA_BUTTONS: EraButton[] = [
+  { id: 'gojoseon', label: '고조선', year: -300, camera: { center: [124.5, 40.5], zoom: 4.4, pitch: 30 }, note: '랴오허강과 대동강 사이를 중심으로 자리 잡은 우리 역사 첫 나라예요.' },
+  { id: 'samhan', label: '삼한', year: -50, camera: { center: [127.5, 36.2], zoom: 5.2, pitch: 35 }, note: '한강 남쪽에는 마한·진한·변한이라는 작은 나라들의 연맹이 있었어요.' },
+  { id: 'baekje', label: '백제 전성기', year: 371, camera: KOREA_VIEW, note: '근초고왕 때 백제는 황해도 남쪽까지 넓히고 바다 건너와도 활발히 교류했어요.' },
+  { id: 'goguryeo', label: '고구려 전성기', year: 475, camera: NE_ASIA, note: '장수왕이 한성을 차지하며 고구려가 한강 유역까지 내려온 시기예요.' },
+  { id: 'silla', label: '신라 전성기', year: 568, camera: KOREA_VIEW, note: '진흥왕이 한강 유역과 가야를 차지하며 신라가 크게 커졌어요.' },
+  { id: 'unified', label: '통일신라', year: 735, camera: KOREA_VIEW, note: '삼국 통일 뒤 신라는 대동강에서 원산만까지를 다스렸어요.' },
+  { id: 'balhae', label: '발해', year: 830, camera: { center: [128.5, 42.5], zoom: 3.8, pitch: 30 }, note: '고구려를 이은 발해는 만주와 연해주까지 다스려 "해동성국"이라 불렸어요.' },
+  { id: 'later3', label: '후삼국', year: 910, camera: KOREA_VIEW, note: '신라가 약해지자 후백제와 후고구려가 일어나 다시 셋으로 나뉘었어요.' },
+  { id: 'goryeo', label: '고려', year: 1100, camera: KOREA_VIEW, note: '고려는 압록강 하구에서 동해안 도련포까지 천리장성을 쌓았어요.' },
+  { id: 'yuan', label: '원 간섭기', year: 1300, camera: { center: [120, 42], zoom: 2.8, pitch: 20 }, note: '몽골 제국과 오랜 전쟁 뒤, 고려는 원나라의 간섭을 받았어요.' },
+  { id: 'joseon1', label: '조선 전기', year: 1450, camera: KOREA_VIEW, note: '세종 때 4군 6진을 두어 압록강·두만강까지 국경을 넓혔어요.' },
+  { id: 'joseon2', label: '조선 후기', year: 1750, camera: KOREA_VIEW, note: '두 번의 큰 전쟁 뒤, 농업과 상업이 다시 살아난 시기예요.' },
+  { id: 'empire', label: '대한제국', year: 1900, camera: KOREA_VIEW, note: '고종이 황제 나라를 선포하고 근대 개혁을 추진했어요.' },
+  { id: 'colonial', label: '일제 강점기', year: 1930, camera: { center: [130, 37], zoom: 3.4, pitch: 25 }, note: '일본의 식민 지배 속에서도 독립운동이 국내외에서 이어졌어요.' },
+  { id: 'division', label: '광복·분단', year: 1953, camera: KOREA_VIEW, note: '광복 뒤 남북이 나뉘었고, 6·25 전쟁이 휴전선을 남겼어요.' },
+  { id: 'today', label: '오늘날', year: 9999, camera: { center: [127.8, 36.5], zoom: 4.4, pitch: 30 }, note: '지금의 대한민국과 세계를 봐요.' },
+];
+
+export interface Place {
+  id: string; name: string; aliases: string[]; lon: number; lat: number; zoom: number;
+  year?: number; kind: '장소' | '사건' | '전투'; desc: string;
+}
+
+export const PLACES: Place[] = [
+  { id: 'seoul', name: '서울(한성·한양)', aliases: ['서울', '한성', '한양', '위례성'], lon: 126.98, lat: 37.57, zoom: 8, kind: '장소', desc: '백제의 첫 도읍 위례성, 조선의 도읍 한양이 있던 곳이에요.' },
+  { id: 'pyongyang', name: '평양', aliases: ['평양', '왕검성'], lon: 125.75, lat: 39.02, zoom: 8, year: 427, kind: '장소', desc: '고구려 장수왕이 427년에 도읍을 옮긴 곳이에요.' },
+  { id: 'gyeongju', name: '경주(서라벌)', aliases: ['경주', '서라벌', '금성'], lon: 129.22, lat: 35.84, zoom: 9, year: 700, kind: '장소', desc: '천 년 가까이 신라의 도읍이었어요. 불국사와 석굴암이 있어요.' },
+  { id: 'gongju', name: '공주(웅진)', aliases: ['공주', '웅진'], lon: 127.12, lat: 36.46, zoom: 9, year: 500, kind: '장소', desc: '한성을 잃은 백제가 475년에 옮긴 도읍이에요. 무령왕릉이 있어요.' },
+  { id: 'buyeo', name: '부여(사비)', aliases: ['부여', '사비'], lon: 126.91, lat: 36.28, zoom: 9, year: 600, kind: '장소', desc: '백제 성왕이 538년에 옮긴 마지막 도읍이에요.' },
+  { id: 'gaeseong', name: '개성(개경)', aliases: ['개성', '개경', '송악'], lon: 126.55, lat: 37.97, zoom: 9, year: 1100, kind: '장소', desc: '고려 500년의 도읍이에요.' },
+  { id: 'gimhae', name: '김해(금관가야)', aliases: ['김해', '금관가야', '가야'], lon: 128.88, lat: 35.23, zoom: 9, year: 400, kind: '장소', desc: '철이 풍부했던 금관가야의 중심지예요.' },
+  { id: 'jian', name: '지안(국내성)', aliases: ['국내성', '지안', '집안', '광개토대왕릉비'], lon: 126.18, lat: 41.13, zoom: 9, year: 414, kind: '장소', desc: '고구려 두 번째 도읍. 광개토대왕릉비가 서 있어요.' },
+  { id: 'sanggyeong', name: '상경 용천부(발해)', aliases: ['상경', '발해 도읍', '용천부'], lon: 129.2, lat: 44.0, zoom: 8, year: 800, kind: '장소', desc: '발해가 가장 오래 도읍으로 삼은 곳이에요.' },
+  { id: 'ganghwa', name: '강화도', aliases: ['강화', '강화도'], lon: 126.45, lat: 37.7, zoom: 9, year: 1232, kind: '장소', desc: '몽골이 쳐들어오자 고려 조정이 옮겨 가 오래 버틴 섬이에요.' },
+  { id: 'baekdu', name: '백두산', aliases: ['백두산', '천지'], lon: 128.06, lat: 42.0, zoom: 9, kind: '장소', desc: '한반도에서 가장 높은 산(2,744m). 꼭대기에 천지가 있어요.' },
+  { id: 'halla', name: '한라산', aliases: ['한라산', '제주'], lon: 126.53, lat: 33.36, zoom: 9, kind: '장소', desc: '제주도 한가운데 있는 화산(1,947m)이에요.' },
+  { id: 'dokdo', name: '독도', aliases: ['독도'], lon: 131.87, lat: 37.24, zoom: 9, kind: '장소', desc: '울릉도 동남쪽 바다에 있는 우리 땅이에요.' },
+  { id: 'salsu', name: '살수 대첩', aliases: ['살수', '청천강', '을지문덕'], lon: 125.6, lat: 39.65, zoom: 8, year: 612, kind: '전투', desc: '612년 을지문덕이 청천강(살수)에서 수나라 군대를 크게 물리쳤어요.' },
+  { id: 'ansi', name: '안시성 전투', aliases: ['안시성', '양만춘'], lon: 122.9, lat: 40.75, zoom: 8, year: 645, kind: '전투', desc: '645년 고구려 안시성이 당 태종의 대군을 두 달 넘게 막아 냈어요.' },
+  { id: 'hwangsanbeol', name: '황산벌 전투', aliases: ['황산벌', '계백', '논산', '연산'], lon: 127.21, lat: 36.21, zoom: 11, year: 660, kind: '전투', desc: '660년 백제 계백의 결사대가 신라군과 맞선 싸움이에요.' },
+  { id: 'gwiju', name: '귀주 대첩', aliases: ['귀주', '강감찬'], lon: 125.27, lat: 40.0, zoom: 8, year: 1019, kind: '전투', desc: '1019년 강감찬이 거란군을 귀주에서 크게 무찔렀어요.' },
+  { id: 'hansando', name: '한산도 대첩', aliases: ['한산도', '이순신', '학익진', '견내량'], lon: 128.48, lat: 34.8, zoom: 11, year: 1592, kind: '전투', desc: '1592년 이순신이 학익진으로 일본 수군을 크게 이긴 바다 싸움이에요.' },
+  { id: 'haengju', name: '행주 대첩', aliases: ['행주', '행주산성', '권율'], lon: 126.82, lat: 37.6, zoom: 10, year: 1593, kind: '전투', desc: '1593년 권율이 행주산성에서 일본군을 물리쳤어요.' },
+  { id: 'myeongnyang', name: '명량 해전', aliases: ['명량', '울돌목'], lon: 126.31, lat: 34.57, zoom: 10, year: 1597, kind: '전투', desc: '1597년 이순신이 울돌목의 빠른 물살을 이용해 크게 이겼어요.' },
+  { id: 'hunmin', name: '훈민정음 반포', aliases: ['훈민정음', '한글', '세종'], lon: 126.98, lat: 37.58, zoom: 8, year: 1446, kind: '사건', desc: '1446년 세종이 백성을 위한 새 글자 훈민정음을 널리 알렸어요.' },
+  { id: 'march1', name: '3·1 운동', aliases: ['3.1운동', '삼일운동', '독립선언'], lon: 126.99, lat: 37.57, zoom: 8, year: 1919, kind: '사건', desc: '1919년 3월 1일, 전국에서 독립 만세를 외친 운동이에요.' },
+  { id: 'liberation', name: '광복', aliases: ['광복', '해방', '8.15'], lon: 127.0, lat: 37.5, zoom: 5, year: 1945, kind: '사건', desc: '1945년 8월 15일, 일본의 식민 지배에서 벗어났어요.' },
+  { id: 'armistice', name: '정전 협정(판문점)', aliases: ['판문점', '휴전', '정전', '휴전선'], lon: 126.68, lat: 37.96, zoom: 9, year: 1953, kind: '사건', desc: '1953년 6·25 전쟁이 멈추고 휴전선이 그어졌어요.' },
+  { id: 'gobi', name: '고비 사막', aliases: ['고비', '사막'], lon: 105, lat: 43, zoom: 4, kind: '장소', desc: '몽골과 중국 북부에 걸친 큰 사막. 봄 황사가 시작되는 곳 중 하나예요.' },
+  { id: 'taklamakan', name: '타클라마칸 사막', aliases: ['타클라마칸'], lon: 83, lat: 39, zoom: 4, kind: '장소', desc: '중국 서쪽의 모래사막이에요.' },
+  { id: 'himalaya', name: '히말라야산맥', aliases: ['히말라야', '에베레스트'], lon: 86.9, lat: 28.0, zoom: 5, kind: '장소', desc: '세계에서 가장 높은 산맥. 여름 계절풍이 이 산에 부딪혀 많은 비를 뿌려요.' },
+  { id: 'changan', name: '장안(시안)', aliases: ['장안', '시안', '서안'], lon: 108.94, lat: 34.34, zoom: 7, year: 750, kind: '장소', desc: '당나라의 도읍. 신라와 발해의 사신과 유학생이 오갔어요.' },
+  { id: 'rome', name: '로마', aliases: ['로마'], lon: 12.5, lat: 41.9, zoom: 6, year: 100, kind: '장소', desc: '로마 제국의 중심 도시예요.' },
+  { id: 'giza', name: '기자 피라미드', aliases: ['피라미드', '이집트', '기자'], lon: 31.13, lat: 29.98, zoom: 7, year: -2500, kind: '장소', desc: '약 4,500년 전 이집트 왕의 무덤으로 세운 거대한 건축물이에요.' },
+  { id: 'babylon', name: '바빌론', aliases: ['바빌론', '메소포타미아'], lon: 44.42, lat: 32.54, zoom: 7, year: -1750, kind: '장소', desc: '메소포타미아의 큰 도시. 함무라비 법전으로 유명해요.' },
+  { id: 'athens', name: '아테네', aliases: ['아테네', '그리스'], lon: 23.73, lat: 37.98, zoom: 7, year: -450, kind: '장소', desc: '고대 그리스 민주 정치가 꽃핀 도시예요.' },
+];
+
+export interface DeepTimeStop { label: string; ago: string; text: string }
+export const DEEP_TIME: DeepTimeStop[] = [
+  { label: '지구 탄생', ago: '약 46억 년 전', text: '먼지와 돌덩이가 뭉쳐 뜨거운 지구가 만들어졌어요. 바다도 생물도 없었어요.' },
+  { label: '첫 생명', ago: '약 38억~35억 년 전', text: '바닷속에서 아주 작은 단세포 생물이 나타났어요.' },
+  { label: '산소가 늘다', ago: '약 24억 년 전', text: '광합성하는 미생물 덕분에 공기 속 산소가 늘기 시작했어요.' },
+  { label: '캄브리아기 대폭발', ago: '약 5억 4천만 년 전', text: '눈과 껍데기를 가진 다양한 동물이 한꺼번에 많이 나타났어요.' },
+  { label: '판게아', ago: '약 3억~2억 년 전', text: '대륙들이 하나로 붙은 거대한 땅 판게아가 있었어요.' },
+  { label: '공룡의 멸종', ago: '약 6,600만 년 전', text: '큰 소행성 충돌 뒤 공룡 대부분이 사라지고 포유류가 늘어났어요.' },
+  { label: '현생 인류 등장', ago: '약 30만 년 전', text: '아프리카에서 호모 사피엔스가 나타나 온 세계로 퍼져 나갔어요.' },
+  { label: '농사의 시작', ago: '약 1만 2천 년 전', text: '빙하기가 끝나고 사람들이 곡식을 기르며 한곳에 모여 살기 시작했어요.' },
+];

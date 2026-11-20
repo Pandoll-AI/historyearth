@@ -7,3 +7,7 @@ build/
 .venv/
 __pycache__/
 .DS_Store
+data-raw/
+test-results/
+playwright-report/
+.shot.mjs
