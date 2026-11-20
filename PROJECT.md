@@ -1,15 +1,15 @@
 ---
 name: historyearth
 title: 역사 지구본
-status: 테스트
+status: 운영
 priority: 보통
-progress: 80
+progress: 95
 stack: Vite, TypeScript, MapLibre GL(globe+terrain), Vitest, Playwright
 repo: 
-deploy: 
+deploy: https://historyearth.vercel.app
 run: npm run dev
 needs: Node 20+, Vercel(emergency-lee) 커넥터 배포
-next: 푸시·배포 후 라이브 검증
+next: GitHub 저장소 생성(커넥터 권한 403) 후 푸시
 created: 2026-11-20
 updated: 2026-11-20
 ---
@@ -25,7 +25,7 @@ updated: 2026-11-20
 |---|---|---|
 | 설치 | `npm install` | Node 20+ |
 | 개발 실행 | `npm run dev` | Vite |
-| 테스트 | `npm test` / `npx playwright test` | Vitest 32개, Playwright 8개(데스크톱 6, 모바일 2). `E2E_URL=https://historyearth.vercel.app`로 라이브 확인(`live_*` 스크린샷) |
+| 테스트 | `npm test` / `npx playwright test` | Vitest 32개, Playwright 13개(데스크톱 6, 화면 정렬 5, 모바일 2). `E2E_URL=https://historyearth.vercel.app`로 라이브 확인(`live_*` 스크린샷) |
 | 빌드 | `npm run build` | `dist/` 정적 파일 |
 | 데이터 | `bash scripts/fetch-raw.sh && npm run data` | `node scripts/fetch-temperature.mjs`(기온 격자) |
 | 배포 | Vercel 커넥터 upload_file + create_deployment | 팀 emergency-lee, 프로젝트 historyearth |
@@ -37,7 +37,7 @@ updated: 2026-11-20
 
 ## 필요사항
 - 환경변수: 없음
-- 계정/연결: 없음(무키 공개 타일: EOX, AWS Terrain, Open-Meteo)
+- 계정/연결: 없음(무키 공개 타일: NASA GIBS Blue Marble, EOX, AWS Terrain, Open-Meteo)
 - 외부 의존성: 위 타일 서버의 가용성
 
 ## 다음 할 일
@@ -50,3 +50,4 @@ updated: 2026-11-20
 ## 진행 로그
 - 2026-11-20 프로젝트 생성
 - 2026-11-20 지구본·타임라인·레이어 4종·전투 2곳·검색·모바일 구현, Vitest 32개 통과
+- 2026-11-20 지도 품질 개선(10m 해안선, 한반도 경계 재작성, Blue Marble·음영, 라벨) + 8px 격자 정렬·정렬 검사 테스트. Vercel 운영 배포·라이브 검증 13/13. GitHub 푸시는 커넥터 저장소 생성 권한 부족으로 보류
