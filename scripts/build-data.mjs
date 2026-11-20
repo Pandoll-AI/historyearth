@@ -79,7 +79,9 @@ for (const f of files) {
   // One more topology pass over the filled set: removes the seams and redundant points of the unions.
   const filledPath = path.join(TMP, 'filled.json');
   fs.writeFileSync(filledPath, JSON.stringify({ type: 'FeatureCollection', features: filled.features }));
-  simplified.features = JSON.parse(ms(['-i', filledPath, '-clean', '-simplify', 'dp', 'interval=1000', 'keep-shapes', '-o', 'format=geojson', 'precision=0.001', '-']).toString()).features;
+  // Final clip to the same land mask (D-028): DP may push a coastal vertex up to ~1 km off
+  // the coast; clipping again keeps every fill on land while inland borders stay as they are.
+  simplified.features = JSON.parse(ms(['-i', filledPath, '-clean', '-simplify', 'dp', 'interval=1000', 'keep-shapes', '-clip', LAND, '-clean', '-filter-slivers', 'min-area=2km2', '-o', 'format=geojson', 'precision=0.001', '-']).toString()).features;
   const feats = [];
   for (const ft of simplified.features) {
     if (!ft.geometry) continue;

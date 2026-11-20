@@ -11,7 +11,7 @@
   "snapshots": 47,
   "sea_km2_total": 3120374,
   "sea_p95_km_worst": 1.29,
-  "sea_max_km_worst": 2.52,
+  "sea_max_km_worst": 2.95,
   "top_sea_km2": [
    {
     "area_km2": 28871785.5,
@@ -416,6 +416,278 @@
   ],
   "top_sea_max_km": [
    {
+    "area_km2": 2849617.6,
+    "sea_km2": 7188.4,
+    "sea_ratio": 0.00252,
+    "boundary_pts": 145662,
+    "sea_pts": 37142,
+    "sea_max_km": 2.95,
+    "sea_p95_km": 0.77,
+    "sea_p99_km": 1.13,
+    "worst": [
+     -25.048,
+     82.89
+    ],
+    "snapshot": 1368,
+    "name": "칼마르 동맹"
+   },
+   {
+    "area_km2": 2849617.6,
+    "sea_km2": 7188.4,
+    "sea_ratio": 0.00252,
+    "boundary_pts": 145662,
+    "sea_pts": 37142,
+    "sea_max_km": 2.95,
+    "sea_p95_km": 0.77,
+    "sea_p99_km": 1.13,
+    "worst": [
+     -25.048,
+     82.89
+    ],
+    "snapshot": 1400,
+    "name": "칼마르 동맹"
+   },
+   {
+    "area_km2": 3100070.4,
+    "sea_km2": 7522.6,
+    "sea_ratio": 0.00243,
+    "boundary_pts": 151204,
+    "sea_pts": 38870,
+    "sea_max_km": 2.95,
+    "sea_p95_km": 0.77,
+    "sea_p99_km": 1.12,
+    "worst": [
+     -25.048,
+     82.89
+    ],
+    "snapshot": 1500,
+    "name": "칼마르 동맹"
+   },
+   {
+    "area_km2": 2497657.6,
+    "sea_km2": 6266.4,
+    "sea_ratio": 0.00251,
+    "boundary_pts": 132976,
+    "sea_pts": 34050,
+    "sea_max_km": 2.82,
+    "sea_p95_km": 0.78,
+    "sea_p99_km": 1.13,
+    "worst": [
+     -25.048,
+     82.89
+    ],
+    "snapshot": 1000,
+    "name": "덴마크-노르웨이"
+   },
+   {
+    "area_km2": 2634843.4,
+    "sea_km2": 7539.0,
+    "sea_ratio": 0.00286,
+    "boundary_pts": 163520,
+    "sea_pts": 42060,
+    "sea_max_km": 2.78,
+    "sea_p95_km": 0.78,
+    "sea_p99_km": 1.11,
+    "worst": [
+     -25.048,
+     82.89
+    ],
+    "snapshot": 1783,
+    "name": "덴마크-노르웨이"
+   },
+   {
+    "area_km2": 2620538.0,
+    "sea_km2": 7509.2,
+    "sea_ratio": 0.00287,
+    "boundary_pts": 161809,
+    "sea_pts": 41777,
+    "sea_max_km": 2.78,
+    "sea_p95_km": 0.79,
+    "sea_p99_km": 1.12,
+    "worst": [
+     -25.048,
+     82.89
+    ],
+    "snapshot": 1800,
+    "name": "덴마크-노르웨이"
+   },
+   {
+    "area_km2": 2259462.0,
+    "sea_km2": 5066.2,
+    "sea_ratio": 0.00224,
+    "boundary_pts": 112915,
+    "sea_pts": 28837,
+    "sea_max_km": 2.75,
+    "sea_p95_km": 0.79,
+    "sea_p99_km": 1.13,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1815,
+    "name": "덴마크"
+   },
+   {
+    "area_km2": 2260149.6,
+    "sea_km2": 5103.1,
+    "sea_ratio": 0.00226,
+    "boundary_pts": 112831,
+    "sea_pts": 28852,
+    "sea_max_km": 2.75,
+    "sea_p95_km": 0.8,
+    "sea_p99_km": 1.14,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1938,
+    "name": "덴마크"
+   },
+   {
+    "area_km2": 2158976.5,
+    "sea_km2": 4590.8,
+    "sea_ratio": 0.00213,
+    "boundary_pts": 104264,
+    "sea_pts": 26360,
+    "sea_max_km": 2.7,
+    "sea_p95_km": 0.8,
+    "sea_p99_km": 1.14,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1914,
+    "name": "덴마크"
+   },
+   {
+    "area_km2": 2158759.1,
+    "sea_km2": 4605.9,
+    "sea_ratio": 0.00213,
+    "boundary_pts": 103891,
+    "sea_pts": 26300,
+    "sea_max_km": 2.7,
+    "sea_p95_km": 0.8,
+    "sea_p99_km": 1.15,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1920,
+    "name": "덴마크"
+   },
+   {
+    "area_km2": 2158759.1,
+    "sea_km2": 4605.9,
+    "sea_ratio": 0.00213,
+    "boundary_pts": 103891,
+    "sea_pts": 26300,
+    "sea_max_km": 2.7,
+    "sea_p95_km": 0.8,
+    "sea_p99_km": 1.15,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1930,
+    "name": "덴마크"
+   },
+   {
+    "area_km2": 2158085.0,
+    "sea_km2": 4568.3,
+    "sea_ratio": 0.00212,
+    "boundary_pts": 103860,
+    "sea_pts": 26265,
+    "sea_max_km": 2.7,
+    "sea_p95_km": 0.8,
+    "sea_p99_km": 1.15,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1945,
+    "name": "덴마크"
+   },
+   {
+    "area_km2": 2117423.0,
+    "sea_km2": 4082.2,
+    "sea_ratio": 0.00193,
+    "boundary_pts": 98668,
+    "sea_pts": 24478,
+    "sea_max_km": 2.62,
+    "sea_p95_km": 0.79,
+    "sea_p99_km": 1.13,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1880,
+    "name": "그린란드"
+   },
+   {
+    "area_km2": 2117423.0,
+    "sea_km2": 4082.2,
+    "sea_ratio": 0.00193,
+    "boundary_pts": 98668,
+    "sea_pts": 24478,
+    "sea_max_km": 2.62,
+    "sea_p95_km": 0.79,
+    "sea_p99_km": 1.13,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1900,
+    "name": "그린란드"
+   },
+   {
+    "area_km2": 2117420.7,
+    "sea_km2": 4104.8,
+    "sea_ratio": 0.00194,
+    "boundary_pts": 98401,
+    "sea_pts": 24470,
+    "sea_max_km": 2.62,
+    "sea_p95_km": 0.8,
+    "sea_p99_km": 1.14,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1960,
+    "name": "그린란드"
+   },
+   {
+    "area_km2": 2117420.7,
+    "sea_km2": 4104.8,
+    "sea_ratio": 0.00194,
+    "boundary_pts": 98401,
+    "sea_pts": 24470,
+    "sea_max_km": 2.62,
+    "sea_p95_km": 0.8,
+    "sea_p99_km": 1.14,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 1994,
+    "name": "그린란드"
+   },
+   {
+    "area_km2": 2117420.7,
+    "sea_km2": 4104.8,
+    "sea_ratio": 0.00194,
+    "boundary_pts": 98401,
+    "sea_pts": 24470,
+    "sea_max_km": 2.62,
+    "sea_p95_km": 0.8,
+    "sea_p99_km": 1.14,
+    "worst": [
+     -25.039,
+     82.893
+    ],
+    "snapshot": 2010,
+    "name": "그린란드"
+   },
+   {
     "area_km2": 9668468.1,
     "sea_km2": 13435.2,
     "sea_ratio": 0.00139,
@@ -542,278 +814,6 @@
     ],
     "snapshot": 2010,
     "name": "캐나다"
-   },
-   {
-    "area_km2": 9268197.5,
-    "sea_km2": 11922.9,
-    "sea_ratio": 0.00129,
-    "boundary_pts": 232087,
-    "sea_pts": 63763,
-    "sea_max_km": 2.42,
-    "sea_p95_km": 0.78,
-    "sea_p99_km": 1.02,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1920,
-    "name": "캐나다"
-   },
-   {
-    "area_km2": 9268273.4,
-    "sea_km2": 11930.7,
-    "sea_ratio": 0.00129,
-    "boundary_pts": 232102,
-    "sea_pts": 63773,
-    "sea_max_km": 2.42,
-    "sea_p95_km": 0.78,
-    "sea_p99_km": 1.02,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1930,
-    "name": "캐나다"
-   },
-   {
-    "area_km2": 9268235.0,
-    "sea_km2": 11944.1,
-    "sea_ratio": 0.00129,
-    "boundary_pts": 232008,
-    "sea_pts": 63896,
-    "sea_max_km": 2.42,
-    "sea_p95_km": 0.78,
-    "sea_p99_km": 1.02,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1938,
-    "name": "캐나다"
-   },
-   {
-    "area_km2": 28871785.5,
-    "sea_km2": 15967.4,
-    "sea_ratio": 0.00055,
-    "boundary_pts": 183495,
-    "sea_pts": 53286,
-    "sea_max_km": 2.24,
-    "sea_p95_km": 0.85,
-    "sea_p99_km": 1.11,
-    "worst": [
-     -63.61,
-     -42.714
-    ],
-    "snapshot": -2000,
-    "name": "고대 아메리카 원주민 수렵채집민"
-   },
-   {
-    "area_km2": 1988244.9,
-    "sea_km2": 7632.6,
-    "sea_ratio": 0.00384,
-    "boundary_pts": 158189,
-    "sea_pts": 43758,
-    "sea_max_km": 2.18,
-    "sea_p95_km": 0.76,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 800,
-    "name": "도싯 문화"
-   },
-   {
-    "area_km2": 1988244.9,
-    "sea_km2": 7632.6,
-    "sea_ratio": 0.00384,
-    "boundary_pts": 158189,
-    "sea_pts": 43758,
-    "sea_max_km": 2.18,
-    "sea_p95_km": 0.76,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 900,
-    "name": "도싯 문화"
-   },
-   {
-    "area_km2": 1988244.9,
-    "sea_km2": 7632.6,
-    "sea_ratio": 0.00384,
-    "boundary_pts": 158189,
-    "sea_pts": 43758,
-    "sea_max_km": 2.18,
-    "sea_p95_km": 0.76,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1000,
-    "name": "도싯 문화"
-   },
-   {
-    "area_km2": 1988244.9,
-    "sea_km2": 7632.6,
-    "sea_ratio": 0.00384,
-    "boundary_pts": 158189,
-    "sea_pts": 43758,
-    "sea_max_km": 2.18,
-    "sea_p95_km": 0.76,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1100,
-    "name": "도싯 문화"
-   },
-   {
-    "area_km2": 1988244.9,
-    "sea_km2": 7632.6,
-    "sea_ratio": 0.00384,
-    "boundary_pts": 158189,
-    "sea_pts": 43758,
-    "sea_max_km": 2.18,
-    "sea_p95_km": 0.76,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1200,
-    "name": "도싯 문화"
-   },
-   {
-    "area_km2": 1870039.7,
-    "sea_km2": 5833.2,
-    "sea_ratio": 0.00312,
-    "boundary_pts": 136734,
-    "sea_pts": 35803,
-    "sea_max_km": 2.01,
-    "sea_p95_km": 0.75,
-    "sea_p99_km": 0.96,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1279,
-    "name": "툴레 문화"
-   },
-   {
-    "area_km2": 1785128.2,
-    "sea_km2": 5829.7,
-    "sea_ratio": 0.00327,
-    "boundary_pts": 136777,
-    "sea_pts": 35790,
-    "sea_max_km": 2.01,
-    "sea_p95_km": 0.75,
-    "sea_p99_km": 0.96,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1300,
-    "name": "툴레 문화"
-   },
-   {
-    "area_km2": 1773286.5,
-    "sea_km2": 5826.7,
-    "sea_ratio": 0.00329,
-    "boundary_pts": 136584,
-    "sea_pts": 35751,
-    "sea_max_km": 2.01,
-    "sea_p95_km": 0.75,
-    "sea_p99_km": 0.96,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1368,
-    "name": "툴레 문화"
-   },
-   {
-    "area_km2": 1773286.5,
-    "sea_km2": 5826.7,
-    "sea_ratio": 0.00329,
-    "boundary_pts": 136584,
-    "sea_pts": 35751,
-    "sea_max_km": 2.01,
-    "sea_p95_km": 0.75,
-    "sea_p99_km": 0.96,
-    "worst": [
-     -76.172,
-     82.486
-    ],
-    "snapshot": 1400,
-    "name": "툴레 문화"
-   },
-   {
-    "area_km2": 5173743.9,
-    "sea_km2": 10891.0,
-    "sea_ratio": 0.00211,
-    "boundary_pts": 213872,
-    "sea_pts": 59144,
-    "sea_max_km": 1.98,
-    "sea_p95_km": 0.76,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -90.296,
-     81.685
-    ],
-    "snapshot": -2000,
-    "name": "북극 바다짐승 사냥꾼"
-   },
-   {
-    "area_km2": 6090194.3,
-    "sea_km2": 12409.1,
-    "sea_ratio": 0.00204,
-    "boundary_pts": 244535,
-    "sea_pts": 67224,
-    "sea_max_km": 1.98,
-    "sea_p95_km": 0.77,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -90.296,
-     81.685
-    ],
-    "snapshot": -1500,
-    "name": "북극 바다짐승 사냥꾼"
-   },
-   {
-    "area_km2": 6090194.3,
-    "sea_km2": 12409.1,
-    "sea_ratio": 0.00204,
-    "boundary_pts": 244535,
-    "sea_pts": 67224,
-    "sea_max_km": 1.98,
-    "sea_p95_km": 0.77,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -90.296,
-     81.685
-    ],
-    "snapshot": -1000,
-    "name": "북극 바다짐승 사냥꾼"
-   },
-   {
-    "area_km2": 6090194.3,
-    "sea_km2": 12409.1,
-    "sea_ratio": 0.00204,
-    "boundary_pts": 244535,
-    "sea_pts": 67224,
-    "sea_max_km": 1.98,
-    "sea_p95_km": 0.77,
-    "sea_p99_km": 0.99,
-    "worst": [
-     -90.296,
-     81.685
-    ],
-    "snapshot": -700,
-    "name": "북극 바다짐승 사냥꾼"
    }
   ],
   "coastal_gaps_km2_total": 1382044,
@@ -1068,8 +1068,6 @@
   "1900 아메리칸사모아 sea p95 1.07 km",
   "1914 세인트키츠 네비스 sea p95 1.16 km",
   "1914 아메리칸사모아 sea p95 1.07 km",
-  "-3000 키클라데스 문화 sea ratio 0.03546",
-  "-2000 키클라데스 문화 sea ratio 0.03551",
   "1783 바하마 sea ratio 0.02565"
  ]
 }

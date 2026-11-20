@@ -54,6 +54,7 @@ function buildBaseStyle(): StyleSpecification {
       koreaPrev: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
       modern: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
       rivers: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
+      seafix: { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, tolerance: 0.5 },
       jet: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
       battleUnits: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
       battlePaths: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
@@ -62,6 +63,10 @@ function buildBaseStyle(): StyleSpecification {
       { id: 'space', type: 'background', paint: { 'background-color': '#02040a' } },
       { id: 'bm', type: 'raster', source: 'bm', paint: { 'raster-saturation': 0.1, 'raster-contrast': 0.08, 'raster-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 8.5, 0] } },
       { id: 'sat', type: 'raster', source: 'sat', minzoom: 6.5, paint: { 'raster-saturation': -0.05, 'raster-contrast': 0.05, 'raster-opacity': ['interpolate', ['linear'], ['zoom'], 6.5, 0, 7.8, 1] } },
+      // Sea fix (D-028): Blue Marble shows muddy river plumes (Yangtze, Gulf of Khambhat, Amazon...) in
+      // land colours. Paint those waters in the clean water colour around them, up to the vector coast
+      // (made by scripts/check-coast-fit.py --build-seafix). Two outer rings feather the edge.
+      { id: 'seafix', type: 'fill', source: 'seafix', paint: { 'fill-color': ['get', 'c'], 'fill-antialias': true, 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 7, ['get', 'o'], 11, ['*', ['get', 'o'], 0.5]] } },
       // Atlas fills: saturated, fading out when zoomed in close (battle views).
       { id: 'hist-fill', type: 'fill', source: 'hist', paint: { 'fill-color': ['get', 'c'], 'fill-antialias': false, 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 4, 0.6, 7, 0.4, 9, 0.18, 11, 0.06] } },
       { id: 'korea-fill', type: 'fill', source: 'korea', paint: { 'fill-color': ['get', 'c'], 'fill-antialias': false, 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 4, 0.66, 7, 0.45, 9, 0.2, 11, 0.08] } },

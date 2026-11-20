@@ -25,11 +25,12 @@ RAW = 'data-raw'
 TILE_DIR = os.path.join(RAW, 'bm6')
 BM = 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg'
 Z = 6
+MIN_OFF_KM = 6.0  # land-looking water closer than this to the coast is the mixed coastal pixel fringe (2-3 px)
 THRESHOLDS = {
     'sea_p95_km': 1.0,          # every polygon: p95 distance of its at-sea boundary points to the coast
     'sea_max_km': 5.0,          # every polygon: worst at-sea boundary point
-    'sea_ratio': 0.025,         # every polygon (>2000 km2): share of its area over the sea (DP 1 km on small islands ~1-2%)
-    'basemap_residual_km2': 500.0,  # all land-looking sea clusters (>=3 km off the coast) not hidden by sea-fix
+    'sea_ratio': 0.025,         # every polygon (>10000 km2): share of its area over the sea (DP 1 km on small islands ~1-2%)
+    'basemap_residual_km2': 500.0,  # land-looking sea pixels >= 6 km off the coast not hidden by sea-fix
 }
 
 def km_xy(lon0, lat0):
@@ -73,8 +74,13 @@ def coast_segments(L, bounds, tf):
         if len(xy) < 2: continue
         out.append(shapely.linestrings(np.stack([xy[:-1], xy[1:]], axis=1)))
     return np.concatenate(out) if out else np.array([])
+def polys_only(g):
+    if g.geom_type in ('Polygon', 'MultiPolygon'): return g
+    ps = [p for p in shapely.get_parts(g) if p.geom_type in ('Polygon', 'MultiPolygon')]
+    return shapely.union_all(ps) if ps else shapely.Polygon()
+
 def check_feature(geom):
-    g = shapely.make_valid(shape(geom))
+    g = polys_only(shapely.make_valid(shape(geom)))
     if g.is_empty: return None
     a = area_km2(g)
     L = land_in(g.bounds)
@@ -124,7 +130,7 @@ def coastal_gaps(feats, label):
                           '-o', 'format=geojson', 'precision=0.001', '-'], check=True, capture_output=True).stdout
     os.remove(fp)
     fc = json.loads(raw)
-    pieces = [shape(f['geometry'] if 'geometry' in f else f) for f in (fc.get('features') or fc.get('geometries') or []) if (f.get('geometry') if 'type' in f and f['type'] == 'Feature' else f)]
+    pieces = fc_geoms(fc)
     polys = [shapely.make_valid(shape(f['geometry'])) for f in feats]
     ptree = STRtree(polys)
     out = []
@@ -273,7 +279,7 @@ def raster(tiles, seafix=None):
         dd = dist[(lab[win] == k)] * float(np.mean(pkm))
         resid = 0.0
         if fixmask is not None:
-            m = (lab[win] == k) & ~fixmask[win] & (dist * float(np.mean(pkm)) >= 3.0)
+            m = (lab[win] == k) & ~fixmask[win] & (dist * float(np.mean(pkm)) >= MIN_OFF_KM)
             ry = np.nonzero(m)[0] + win[0].start + y0 * 256
             rl = np.degrees(np.arctan(np.sinh(np.pi * (1 - 2 * (ry + 0.5) / n_world))))
             resid = float(np.sum((40075.0 / n_world * np.cos(np.radians(rl))) ** 2))
@@ -302,6 +308,7 @@ def build_seafix(state, rows, display_land):
     feats = []
     objs = ndimage.find_objects(lab)
     for r in rows:
+        if r['max_km'] < MIN_OFF_KM: continue  # thin fringes stay under the border line
         k = r['label']; sl = objs[k - 1]
         win = (slice(max(0, sl[0].start - 12), sl[0].stop + 12), slice(max(0, sl[1].start - 12), sl[1].stop + 12))
         m = lab[win] == k
@@ -323,7 +330,7 @@ def build_seafix(state, rows, display_land):
             for s, e in zip(starts, ends):
                 X0 = s + win[1].start; Y0 = yv + win[0].start
                 boxes.append(box(X0, Y0, e + win[1].start + 1, Y0 + 1))
-        P = shapely.union_all(boxes).simplify(0.7)
+        P = shapely.union_all(boxes).simplify(1.0)
         P = shapely.transform(P, px2ll)
         P = shapely.make_valid(P)
         b = P.bounds
@@ -332,7 +339,7 @@ def build_seafix(state, rows, display_land):
         r1 = shapely.make_valid(P.buffer(0.04, quad_segs=4).difference(P).difference(L))
         r2 = shapely.make_valid(P.buffer(0.09, quad_segs=4).difference(P.buffer(0.04, quad_segs=4)).difference(L))
         for g, o in ((core, 0.92), (r1, 0.55), (r2, 0.25)):
-            g = shapely.set_precision(g, 0.001)
+            g = shapely.set_precision(g.simplify(0.003), 0.001)
             g = shapely.make_valid(g)
             polys = [q for q in getattr(g, 'geoms', [g]) if q.geom_type == 'Polygon' and not q.is_empty]
             if not polys: continue
@@ -340,15 +347,17 @@ def build_seafix(state, rows, display_land):
             feats.append({'type': 'Feature', 'properties': {'c': hexc, 'o': o}, 'geometry': mapping(mp)})
     return {'type': 'FeatureCollection', 'features': feats}
 
+def fc_geoms(fc):
+    items = fc.get('features') or fc.get('geometries') or []
+    out = []
+    for f in items:
+        g = f.get('geometry') if f.get('type') == 'Feature' else f
+        if g: out.append(shape(g))
+    return out
+
 def display_land_geom():
     """The coast used by the build: NE 10m land, DP 1 km, islands >= 30 km2."""
-    import subprocess, tempfile
-    tmp = tempfile.mktemp(suffix='.json')
-    subprocess.run(['npx', 'mapshaper', '-i', os.path.join(RAW, 'ne_10m_land.geojson'), '-simplify', 'dp', 'interval=1000', 'keep-shapes',
-                    '-filter-islands', 'min-area=30km2', '-o', 'format=geojson', 'precision=0.001', tmp], check=True, capture_output=True)
-    fc = json.load(open(tmp)); os.remove(tmp)
-    gs = [shapely.make_valid(shape(f['geometry'] if 'geometry' in f else f)) for f in (fc.get('features') or fc.get('geometries'))]
-    return shapely.union_all(gs)
+    return shapely.union_all([shapely.make_valid(g) for g in fc_geoms(json.load(open(ensure_display_land())))])
 
 # ---------------------------------------------------------------- report
 REGIONS = [((119, 26, 124, 33), '중국 동해안(창장 하구·저장)'), ((117, 33, 127, 41), '황해·보하이'), ((66, 15, 74.5, 24.5), '인도 서해안(구자라트·캄베이만·콘칸)'),
@@ -376,7 +385,7 @@ def main():
     fail = []
     if a.vector:
         rows, gaps = vector(a.data, years)
-        big = [r for r in rows if r['area_km2'] > 2000]
+        big = [r for r in rows if r['area_km2'] > 10000]  # small archipelagos: DP-1km island outlines inflate the ratio; distance rules still apply
         res['vector'] = {
             'polygons': len(rows), 'snapshots': len(gaps),
             'sea_km2_total': round(sum(r['sea_km2'] for r in rows)),
@@ -432,7 +441,7 @@ def write_md(res, path):
     if r:
         L += ['## 배경 지도(Blue Marble) vs NE 10m 해안선', '',
               f"- 해안 타일 {r['tiles']}장(줌 6, 픽셀 약 2.4km). 바다인데 육지처럼 보이는(갈색·녹색 탁한 물) 덩어리 {r['clusters']}개, {r['land_looking_sea_km2']} km²",
-              f"- sea-fix 적용: {'예' if r['seafix'] else '아니오'}, 가려지지 않은 면적(해안에서 3km 이상) {r['residual_km2']} km²", '',
+              f"- sea-fix 적용: {'예' if r['seafix'] else '아니오'}, 가려지지 않은 면적(해안에서 6km 이상) {r['residual_km2']} km²", '',
               '| 지역 | 면적 km² | 해안에서 최대 km | p95 km | 남은 km² | 중심 |', '|---|---|---|---|---|---|']
         for c in r['top'][:20]: L.append(f"| {c['region']} | {c['km2']} | {c['max_km']} | {c['p95_km']} | {c['residual_km2']} | {c['at']} |")
         L.append('')

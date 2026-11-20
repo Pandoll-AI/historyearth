@@ -535,6 +535,8 @@ async function boot(): Promise<void> {
   (map.getSource('modern') as any).setData(modern);
   (map.getSource('rivers') as any).setData(rivers);
   (map.getSource('jet') as any).setData({ type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [[75, 40], [90, 41.5], [105, 41.8], [118, 40.5], [128, 38.8], [138, 38], [150, 38.5]] } }] });
+  // Sea fix loads after the first paint so it never delays the start.
+  void fetch('/data/sea-fix.json').then((r) => r.json()).then((fc) => (map.getSource('seafix') as any)?.setData(fc)).catch(() => undefined);
   ready = true;
   document.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show');
   const s = store.get();

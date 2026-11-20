@@ -1,0 +1,1388 @@
+{
+ "thresholds": {
+  "sea_p95_km": 1.0,
+  "sea_max_km": 5.0,
+  "sea_ratio": 0.025,
+  "basemap_residual_km2": 500.0
+ },
+ "source": "Natural Earth 10m land; NASA Blue Marble (GIBS) zoom 6",
+ "vector": {
+  "polygons": 8685,
+  "snapshots": 47,
+  "sea_km2_total": 2782122,
+  "sea_p95_km_worst": 0.93,
+  "sea_max_km_worst": 2.14,
+  "top_sea_km2": [
+   {
+    "area_km2": 28869729.4,
+    "sea_km2": 14290.8,
+    "sea_ratio": 0.0005,
+    "boundary_pts": 180987,
+    "sea_pts": 50745,
+    "sea_max_km": 1.8,
+    "sea_p95_km": 0.81,
+    "sea_p99_km": 1.05,
+    "worst": [
+     -139.325,
+     59.788
+    ],
+    "snapshot": -2000,
+    "name": "고대 아메리카 원주민 수렵채집민"
+   },
+   {
+    "area_km2": 9666757.5,
+    "sea_km2": 12017.6,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 242702,
+    "sea_pts": 65089,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1914,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666691.8,
+    "sea_km2": 12017.2,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 242660,
+    "sea_pts": 65106,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1880,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666691.8,
+    "sea_km2": 12017.2,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 242660,
+    "sea_pts": 65106,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1900,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666686.6,
+    "sea_km2": 12015.0,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 242684,
+    "sea_pts": 65079,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1815,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666949.0,
+    "sea_km2": 12013.0,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 243292,
+    "sea_pts": 65096,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1960,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666931.7,
+    "sea_km2": 12012.1,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 243416,
+    "sea_pts": 65092,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1994,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666931.7,
+    "sea_km2": 12012.1,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 243416,
+    "sea_pts": 65092,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 2010,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666879.8,
+    "sea_km2": 12010.9,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 243282,
+    "sea_pts": 65109,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1945,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 6091148.8,
+    "sea_km2": 11065.0,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241785,
+    "sea_pts": 63191,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -1,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091148.8,
+    "sea_km2": 11065.0,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241785,
+    "sea_pts": 63191,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 100,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091148.8,
+    "sea_km2": 11065.0,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241785,
+    "sea_pts": 63191,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 200,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091148.8,
+    "sea_km2": 11065.0,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241785,
+    "sea_pts": 63191,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 300,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091148.8,
+    "sea_km2": 11065.0,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241785,
+    "sea_pts": 63191,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 400,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091109.3,
+    "sea_km2": 11064.7,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241693,
+    "sea_pts": 63190,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -500,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091140.7,
+    "sea_km2": 11064.6,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241583,
+    "sea_pts": 63216,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -100,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091107.1,
+    "sea_km2": 11062.2,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241706,
+    "sea_pts": 63184,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -323,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091107.1,
+    "sea_km2": 11062.2,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241706,
+    "sea_pts": 63184,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -300,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091107.0,
+    "sea_km2": 11062.2,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241706,
+    "sea_pts": 63184,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 600,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091120.7,
+    "sea_km2": 11057.1,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241677,
+    "sea_pts": 63159,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -400,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091117.9,
+    "sea_km2": 11056.8,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241577,
+    "sea_pts": 63136,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -1500,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091117.9,
+    "sea_km2": 11056.8,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241577,
+    "sea_pts": 63136,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -1000,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091117.9,
+    "sea_km2": 11056.8,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241577,
+    "sea_pts": 63136,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -700,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091112.4,
+    "sea_km2": 11055.2,
+    "sea_ratio": 0.00181,
+    "boundary_pts": 241511,
+    "sea_pts": 63146,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -200,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091111.7,
+    "sea_km2": 11055.2,
+    "sea_ratio": 0.00181,
+    "boundary_pts": 241511,
+    "sea_pts": 63148,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 500,
+    "name": "북극 바다짐승 사냥꾼"
+   }
+  ],
+  "top_sea_max_km": [
+   {
+    "area_km2": 3099063.1,
+    "sea_km2": 6715.6,
+    "sea_ratio": 0.00217,
+    "boundary_pts": 149544,
+    "sea_pts": 36854,
+    "sea_max_km": 2.14,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.97,
+    "worst": [
+     -52.532,
+     82.258
+    ],
+    "snapshot": 1500,
+    "name": "칼마르 동맹"
+   },
+   {
+    "area_km2": 2848669.7,
+    "sea_km2": 6429.4,
+    "sea_ratio": 0.00226,
+    "boundary_pts": 144010,
+    "sea_pts": 35211,
+    "sea_max_km": 2.13,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.97,
+    "worst": [
+     -52.532,
+     82.258
+    ],
+    "snapshot": 1368,
+    "name": "칼마르 동맹"
+   },
+   {
+    "area_km2": 2848669.7,
+    "sea_km2": 6429.4,
+    "sea_ratio": 0.00226,
+    "boundary_pts": 144010,
+    "sea_pts": 35211,
+    "sea_max_km": 2.13,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.97,
+    "worst": [
+     -52.532,
+     82.258
+    ],
+    "snapshot": 1400,
+    "name": "칼마르 동맹"
+   },
+   {
+    "area_km2": 2496789.8,
+    "sea_km2": 5561.7,
+    "sea_ratio": 0.00223,
+    "boundary_pts": 131469,
+    "sea_pts": 32185,
+    "sea_max_km": 2.02,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -52.532,
+     82.258
+    ],
+    "snapshot": 1000,
+    "name": "덴마크-노르웨이"
+   },
+   {
+    "area_km2": 9666686.6,
+    "sea_km2": 12015.0,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 242684,
+    "sea_pts": 65079,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1815,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666691.8,
+    "sea_km2": 12017.2,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 242660,
+    "sea_pts": 65106,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1880,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666691.8,
+    "sea_km2": 12017.2,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 242660,
+    "sea_pts": 65106,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1900,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666757.5,
+    "sea_km2": 12017.6,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 242702,
+    "sea_pts": 65089,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1914,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666879.8,
+    "sea_km2": 12010.9,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 243282,
+    "sea_pts": 65109,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1945,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666949.0,
+    "sea_km2": 12013.0,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 243292,
+    "sea_pts": 65096,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1960,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666931.7,
+    "sea_km2": 12012.1,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 243416,
+    "sea_pts": 65092,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1994,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9666931.7,
+    "sea_km2": 12012.1,
+    "sea_ratio": 0.00124,
+    "boundary_pts": 243416,
+    "sea_pts": 65092,
+    "sea_max_km": 2.0,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.98,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 2010,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9266602.4,
+    "sea_km2": 10652.6,
+    "sea_ratio": 0.00115,
+    "boundary_pts": 227879,
+    "sea_pts": 59741,
+    "sea_max_km": 1.99,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.97,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1920,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9266673.4,
+    "sea_km2": 10655.3,
+    "sea_ratio": 0.00115,
+    "boundary_pts": 227897,
+    "sea_pts": 59751,
+    "sea_max_km": 1.99,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.97,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1930,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 9266627.6,
+    "sea_km2": 10665.6,
+    "sea_ratio": 0.00115,
+    "boundary_pts": 227924,
+    "sea_pts": 59832,
+    "sea_max_km": 1.99,
+    "sea_p95_km": 0.74,
+    "sea_p99_km": 0.97,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": 1938,
+    "name": "캐나다"
+   },
+   {
+    "area_km2": 5172222.7,
+    "sea_km2": 9666.9,
+    "sea_ratio": 0.00187,
+    "boundary_pts": 211035,
+    "sea_pts": 55369,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.93,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -2000,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091117.9,
+    "sea_km2": 11056.8,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241577,
+    "sea_pts": 63136,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -1500,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091117.9,
+    "sea_km2": 11056.8,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241577,
+    "sea_pts": 63136,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -1000,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091117.9,
+    "sea_km2": 11056.8,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241577,
+    "sea_pts": 63136,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -700,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091109.3,
+    "sea_km2": 11064.7,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241693,
+    "sea_pts": 63190,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -500,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091120.7,
+    "sea_km2": 11057.1,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241677,
+    "sea_pts": 63159,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -400,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091107.1,
+    "sea_km2": 11062.2,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241706,
+    "sea_pts": 63184,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -323,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091107.1,
+    "sea_km2": 11062.2,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241706,
+    "sea_pts": 63184,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -300,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091112.4,
+    "sea_km2": 11055.2,
+    "sea_ratio": 0.00181,
+    "boundary_pts": 241511,
+    "sea_pts": 63146,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -200,
+    "name": "북극 바다짐승 사냥꾼"
+   },
+   {
+    "area_km2": 6091140.7,
+    "sea_km2": 11064.6,
+    "sea_ratio": 0.00182,
+    "boundary_pts": 241583,
+    "sea_pts": 63216,
+    "sea_max_km": 1.98,
+    "sea_p95_km": 0.72,
+    "sea_p99_km": 0.92,
+    "worst": [
+     -90.296,
+     81.685
+    ],
+    "snapshot": -100,
+    "name": "북극 바다짐승 사냥꾼"
+   }
+  ],
+  "coastal_gaps_km2_total": 1377873,
+  "top_gaps": [
+   {
+    "km2": 4804.2,
+    "mean_width_km": 11.9,
+    "at": [
+     34.56,
+     46.0
+    ],
+    "snapshot": -200
+   },
+   {
+    "km2": 4804.2,
+    "mean_width_km": 11.9,
+    "at": [
+     34.56,
+     46.0
+    ],
+    "snapshot": -100
+   },
+   {
+    "km2": 4742.0,
+    "mean_width_km": 27.6,
+    "at": [
+     -4.57,
+     55.28
+    ],
+    "snapshot": 1000
+   },
+   {
+    "km2": 4742.0,
+    "mean_width_km": 27.6,
+    "at": [
+     -4.57,
+     55.28
+    ],
+    "snapshot": 1100
+   },
+   {
+    "km2": 4742.0,
+    "mean_width_km": 27.6,
+    "at": [
+     -4.57,
+     55.28
+    ],
+    "snapshot": 1200
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 800
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1100
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1200
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1300
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1368
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1400
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1500
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1530
+   },
+   {
+    "km2": 4376.4,
+    "mean_width_km": 14.7,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1600
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1650
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1700
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1715
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1783
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1800
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1880
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1900
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1914
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1920
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1930
+   },
+   {
+    "km2": 4338.8,
+    "mean_width_km": 14.5,
+    "at": [
+     110.09,
+     1.65
+    ],
+    "snapshot": 1938
+   }
+  ]
+ },
+ "raster": {
+  "tiles": 768,
+  "clusters": 1287,
+  "land_looking_sea_km2": 689854,
+  "seafix": true,
+  "residual_km2": 7,
+  "top": [
+   {
+    "km2": 71016,
+    "max_km": 141.8,
+    "p95_km": 103.1,
+    "at": [
+     -49.7,
+     1.09
+    ],
+    "residual_km2": 0,
+    "region": "아마존 하구"
+   },
+   {
+    "km2": 68852,
+    "max_km": 141.3,
+    "p95_km": 101.9,
+    "at": [
+     121.41,
+     31.75
+    ],
+    "residual_km2": 0,
+    "region": "중국 동해안(창장 하구·저장)"
+   },
+   {
+    "km2": 29595,
+    "max_km": 84.9,
+    "p95_km": 50.3,
+    "at": [
+     154.55,
+     71.25
+    ],
+    "residual_km2": 0,
+    "region": "동시베리아해 연안"
+   },
+   {
+    "km2": 23350,
+    "max_km": 94.7,
+    "p95_km": 71.0,
+    "at": [
+     72.23,
+     20.81
+    ],
+    "residual_km2": 0,
+    "region": "인도 서해안(구자라트·캄베이만·콘칸)"
+   },
+   {
+    "km2": 22921,
+    "max_km": 75.0,
+    "p95_km": 49.7,
+    "at": [
+     90.65,
+     21.97
+    ],
+    "residual_km2": 0,
+    "region": "벵골만 북부(갠지스 하구)"
+   },
+   {
+    "km2": 20627,
+    "max_km": 56.3,
+    "p95_km": 42.4,
+    "at": [
+     51.71,
+     46.27
+    ],
+    "residual_km2": 0,
+    "region": "카스피해 북부"
+   },
+   {
+    "km2": 18834,
+    "max_km": 78.1,
+    "p95_km": 51.5,
+    "at": [
+     96.57,
+     16.23
+    ],
+    "residual_km2": 0,
+    "region": "이라와디 하구(미얀마)"
+   },
+   {
+    "km2": 17735,
+    "max_km": 59.3,
+    "p95_km": 42.5,
+    "at": [
+     118.66,
+     38.29
+    ],
+    "residual_km2": 0,
+    "region": "황해·보하이"
+   },
+   {
+    "km2": 16418,
+    "max_km": 49.6,
+    "p95_km": 36.9,
+    "at": [
+     -57.41,
+     -34.88
+    ],
+    "residual_km2": 0,
+    "region": "라플라타강 하구"
+   },
+   {
+    "km2": 11454,
+    "max_km": 26.7,
+    "p95_km": 19.6,
+    "at": [
+     -56.56,
+     6.42
+    ],
+    "residual_km2": 0,
+    "region": "-56.6°, 6.4°"
+   },
+   {
+    "km2": 9994,
+    "max_km": 52.7,
+    "p95_km": 41.0,
+    "at": [
+     121.57,
+     40.2
+    ],
+    "residual_km2": 0,
+    "region": "황해·보하이"
+   },
+   {
+    "km2": 9495,
+    "max_km": 48.3,
+    "p95_km": 32.1,
+    "at": [
+     -60.67,
+     9.01
+    ],
+    "residual_km2": 0,
+    "region": "오리노코 하구·기아나"
+   },
+   {
+    "km2": 9086,
+    "max_km": 33.4,
+    "p95_km": 21.5,
+    "at": [
+     -80.88,
+     52.31
+    ],
+    "residual_km2": 0,
+    "region": "제임스만(허드슨만)"
+   },
+   {
+    "km2": 8081,
+    "max_km": 24.5,
+    "p95_km": 14.8,
+    "at": [
+     103.31,
+     0.49
+    ],
+    "residual_km2": 0,
+    "region": "믈라카 해협·수마트라 동안"
+   },
+   {
+    "km2": 7895,
+    "max_km": 36.0,
+    "p95_km": 25.4,
+    "at": [
+     -135.28,
+     69.42
+    ],
+    "residual_km2": 0,
+    "region": "매켄지 하구"
+   },
+   {
+    "km2": 7759,
+    "max_km": 40.6,
+    "p95_km": 30.7,
+    "at": [
+     -164.79,
+     62.9
+    ],
+    "residual_km2": 0,
+    "region": "유콘 하구"
+   },
+   {
+    "km2": 7512,
+    "max_km": 24.5,
+    "p95_km": 16.2,
+    "at": [
+     -62.04,
+     -39.73
+    ],
+    "residual_km2": 0,
+    "region": "아르헨티나 바이아블랑카"
+   },
+   {
+    "km2": 7209,
+    "max_km": 24.1,
+    "p95_km": 17.4,
+    "at": [
+     105.95,
+     9.39
+    ],
+    "residual_km2": 0,
+    "region": "메콩 하구"
+   },
+   {
+    "km2": 7146,
+    "max_km": 66.1,
+    "p95_km": 48.4,
+    "at": [
+     137.97,
+     -8.33
+    ],
+    "residual_km2": 0,
+    "region": "아라푸라해(뉴기니 남안)"
+   },
+   {
+    "km2": 7011,
+    "max_km": 37.4,
+    "p95_km": 26.4,
+    "at": [
+     129.03,
+     -14.75
+    ],
+    "residual_km2": 0,
+    "region": "129.0°, -14.8°"
+   },
+   {
+    "km2": 6924,
+    "max_km": 41.5,
+    "p95_km": 31.5,
+    "at": [
+     69.36,
+     22.71
+    ],
+    "residual_km2": 0,
+    "region": "인도 서해안(구자라트·캄베이만·콘칸)"
+   },
+   {
+    "km2": 6442,
+    "max_km": 26.0,
+    "p95_km": 19.4,
+    "at": [
+     -51.15,
+     -30.79
+    ],
+    "residual_km2": 0,
+    "region": "-51.1°, -30.8°"
+   },
+   {
+    "km2": 6399,
+    "max_km": 27.2,
+    "p95_km": 20.0,
+    "at": [
+     48.75,
+     29.89
+    ],
+    "residual_km2": 0,
+    "region": "페르시아만 북부"
+   },
+   {
+    "km2": 5955,
+    "max_km": 16.9,
+    "p95_km": 13.3,
+    "at": [
+     -151.05,
+     60.83
+    ],
+    "residual_km2": 0,
+    "region": "-151.1°, 60.8°"
+   },
+   {
+    "km2": 5766,
+    "max_km": 34.9,
+    "p95_km": 21.9,
+    "at": [
+     143.63,
+     -8.23
+    ],
+    "residual_km2": 0,
+    "region": "143.6°, -8.2°"
+   },
+   {
+    "km2": 4922,
+    "max_km": 19.4,
+    "p95_km": 14.3,
+    "at": [
+     76.48,
+     71.48
+    ],
+    "residual_km2": 0,
+    "region": "오비·예니세이만"
+   },
+   {
+    "km2": 4859,
+    "max_km": 50.8,
+    "p95_km": 41.1,
+    "at": [
+     140.97,
+     -9.1
+    ],
+    "residual_km2": 0,
+    "region": "아라푸라해(뉴기니 남안)"
+   },
+   {
+    "km2": 4857,
+    "max_km": 41.0,
+    "p95_km": 26.7,
+    "at": [
+     87.82,
+     21.51
+    ],
+    "residual_km2": 0,
+    "region": "벵골만 북부(갠지스 하구)"
+   },
+   {
+    "km2": 4738,
+    "max_km": 36.9,
+    "p95_km": 27.1,
+    "at": [
+     136.76,
+     71.66
+    ],
+    "residual_km2": 0,
+    "region": "136.8°, 71.7°"
+   },
+   {
+    "km2": 4446,
+    "max_km": 18.8,
+    "p95_km": 10.2,
+    "at": [
+     7.55,
+     53.66
+    ],
+    "residual_km2": 0,
+    "region": "7.5°, 53.7°"
+   }
+  ]
+ },
+ "fail": []
+}
