@@ -35,9 +35,11 @@ API 키나 계정이 필요 없습니다(`.env.example` 비어 있음).
 ## 데이터·이미지 출처와 라이선스
 | 무엇 | 출처 | 라이선스 |
 |---|---|---|
-| 세계 역사 국경(BC 3000~2010, 46개 시점) | [aourednik/historical-basemaps](https://github.com/aourednik/historical-basemaps) – 단순화·위상 정리 후 Natural Earth 10m 육지로 잘라 `public/data/borders/`에 포함(몇몇 나라 이름은 시대에 맞게 고침) | GPL-3.0 (해당 데이터 파일은 GPL-3.0을 따름) |
-| 한반도 나라 영역(고조선~현재, 53개 구간) | 이 저장소에서 직접 작성(`scripts/korea-polygons.mjs`). 한강·소백산맥·낙동강·대동강–원산만·천리장성 같은 공유 경계선으로 그려 이웃 나라 사이 틈·겹침이 없고, Natural Earth 10m 육지로 잘라 냄. 교과서 수준의 **대략적 범위** | CC BY 4.0 (이 저장소) |
-| 현대 국경·나라 이름 | [Natural Earth](https://www.naturalearthdata.com/) 1:50m/1:110m | 퍼블릭 도메인 |
+| 세계 역사 국경(BC 3000~2010, 46개 시점 + 1368년 보정 시점) | [aourednik/historical-basemaps](https://github.com/aourednik/historical-basemaps) – 공유 경계선(TopoJSON 호) 위에서 모서리를 둥글게 다듬고 촘촘히 한 뒤, Natural Earth 10m 현대 국경선·강과 겹치는 구간은 그 선에 맞추고(`scripts/refine-borders.mjs`), 10m 육지로 잘라 해안까지 채워(`scripts/fill-coast-gaps.mjs`) `public/data/borders/`에 포함. 몇몇 나라 이름은 시대에 맞게 고침 | GPL-3.0 (해당 데이터 파일은 GPL-3.0을 따름) |
+| 한반도 나라 영역(고조선~현재, 53개 구간) | 이 저장소에서 직접 작성(`scripts/korea-polygons.mjs`). 한강·소백산맥·낙동강·대동강–원산만·천리장성 같은 공유 경계선으로 그려 이웃 나라 사이 틈·겹침이 없고, Natural Earth 10m 육지로 잘라 냄 | CC BY 4.0 (이 저장소) |
+| 1368~1499년 명·북원·여진 영역 | 이 저장소에서 직접 작성(`scripts/ming-1400.mjs`): 원본 1400년 시점의 원 다각형을 명 초기 북쪽 경계(가욕관–오르도스–대동·선부–개평·대녕–요동 변장–압록강)와 대흥안령 선으로 나눔 | CC BY 4.0 (이 저장소) |
+| 나라 이름 한글 표기 | 직접 만든 대응표(`scripts/name-ko-table.txt`, 국립국어원 외래어 표기·교과서 표기 기준) + 규칙(`scripts/name-ko.mjs`, `scripts/translit-ko.mjs`) | CC BY 4.0 (이 저장소) |
+| 현대 국경·나라 이름 | [Natural Earth](https://www.naturalearthdata.com/) 1:10m admin-0 boundary lines(국경선·국경 맞추기 기준), 1:110m countries(이름) | 퍼블릭 도메인 |
 | 육지 경계(해안선 자르기)·강 | [Natural Earth](https://www.naturalearthdata.com/) 1:10m land, rivers + lake centerlines | 퍼블릭 도메인 |
 | 기본 지구 영상(줌 8 이하) | [NASA Blue Marble](https://earthobservatory.nasa.gov/features/BlueMarble) Shaded Relief + Bathymetry, [NASA GIBS](https://earthdata.nasa.gov/gibs) 타일 | 퍼블릭 도메인(NASA) |
 | 확대 위성 영상(줌 7 이상) | [Sentinel-2 cloudless 2016 by EOX](https://s2maps.eu) (Copernicus Sentinel data 2016) | CC BY 4.0 |
@@ -50,7 +52,6 @@ API 키나 계정이 필요 없습니다(`.env.example` 비어 있음).
 모든 설명 문구, 전투 장면 배치, 아이콘(유니코드 기호와 SVG)은 이 앱을 위해 새로 썼습니다.
 
 ## 한계
-- historical-basemaps의 1400년 시점은 1300년 자료를 그대로 담고 있어 1400~1499년 중국·몽골은 한 덩어리("명·북원")로 보입니다.
-- 고대 국경은 학설마다 다릅니다. 한반도 영역은 대략적 범위이고 세계 국경은 historical-basemaps 시점(수십~수백 년 간격) 중 가장 가까운 이전 시점을 씁니다.
+- 세계 국경은 historical-basemaps 시점(수십~수백 년 간격) 중 가장 가까운 이전 시점을 씁니다.
 - 바람·먼지·구름 애니메이션은 설명용 그림입니다. 기온은 6° 격자를 보간해 산맥 같은 작은 지형은 드러나지 않습니다.
 - 아주 먼 옛날 모드는 글 설명만 있고, 그 시대의 대륙 지도는 없습니다.

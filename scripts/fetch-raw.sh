@@ -7,7 +7,7 @@ for y in bc3000 bc2000 bc1500 bc1000 bc700 bc500 bc400 bc323 bc300 bc200 bc100 b
   [ -f world_$y.geojson ] || curl -fsSO $HB/world_$y.geojson
 done
 NE=https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson
-for f in ne_50m_admin_0_countries ne_50m_land ne_50m_rivers_lake_centerlines ne_110m_admin_0_countries; do
+for f in ne_10m_land ne_10m_rivers_lake_centerlines ne_10m_admin_0_boundary_lines_land ne_50m_admin_0_countries ne_50m_land ne_50m_rivers_lake_centerlines ne_110m_admin_0_countries; do
   [ -f $f.geojson ] || curl -fsSO $NE/$f.geojson
 done
 echo done

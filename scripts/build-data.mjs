@@ -6,6 +6,9 @@ import { execFileSync } from 'node:child_process';
 import * as turf from '@turf/turf';
 import { nameKo } from './name-ko.mjs';
 import { KOREA, LINE_38, LINE_DMZ } from './korea-polygons.mjs';
+import { buildRefIndex, refineTopology } from './refine-borders.mjs';
+import { splitMing1400 } from './ming-1400.mjs';
+import { fillCoastGaps } from './fill-coast-gaps.mjs';
 
 const RAW = 'data-raw';
 const OUT = 'public/data';
@@ -18,9 +21,10 @@ const PALETTE = ['#e07b39', '#5fae4e', '#4a7fd6', '#e3c03a', '#a160d0', '#2fb3a6
 const TMP = fs.mkdtempSync('/tmp/he-data-');
 // Detailed land mask (Natural Earth 10m land, public domain): coastlines for clipping
 const LAND = path.join(TMP, 'land.json');
-ms(['-i', path.join(RAW, 'ne_10m_land.geojson'), '-simplify', 'interval=1500', 'keep-shapes', '-filter-islands', 'min-area=30km2', '-o', 'format=geojson', 'precision=0.001', LAND]);
+// Douglas-Peucker 1 km: chosen in docs/SIMPLIFY_EXPERIMENT.md (D-026).
+ms(['-i', path.join(RAW, 'ne_10m_land.geojson'), '-simplify', 'dp', 'interval=1000', 'keep-shapes', '-filter-islands', 'min-area=30km2', '-o', 'format=geojson', 'precision=0.001', LAND]);
 const LAND_KR = path.join(TMP, 'land-kr.json');
-ms(['-i', path.join(RAW, 'ne_10m_land.geojson'), '-clip', 'bbox=115,30,140,50', '-simplify', 'interval=800', 'keep-shapes', '-filter-islands', 'min-area=40km2', '-dissolve', '-o', 'format=geojson', 'precision=0.001', LAND_KR]);
+ms(['-i', path.join(RAW, 'ne_10m_land.geojson'), '-clip', 'bbox=115,30,140,50', '-simplify', 'dp', 'interval=1000', 'keep-shapes', '-filter-islands', 'min-area=40km2', '-dissolve', '-o', 'format=geojson', 'precision=0.001', LAND_KR]);
 const hash = (s) => { let h = 0; for (const ch of s) h = (h * 31 + ch.codePointAt(0)) >>> 0; return h; };
 const KOREAN_NAMES = new Set(['Koguryo', 'Paekche', 'Silla', 'Gaya', 'Balhae', 'Korea', 'Paleo-Koreans', 'Korea (USA)', 'Korea (USSR)', 'Gojoseon', 'Joseon', 'Goryeo', 'Koryo', 'Puyo', 'Buyeo', 'Chin', 'Mahan', 'Jinhan', 'Byeonhan', 'Lelang']);
 
@@ -42,9 +46,19 @@ function roundGeom(g, fn = round) {
 // Name corrections where a source snapshot carries over an older name.
 const FIXES = [
   { n: 'Sui Empire', from: 618, to: 907, k: '당' },
-  { n: 'Great Khanate', from: 1368, to: 1500, k: '명·북원' },
+  { n: 'Jin', from: 265, to: 316, k: '서진' },
+  { n: 'Jin', from: 317, to: 420, k: '동진' },
   { n: 'Shogun Japan (Kamakura)', from: 1336, to: 1573, k: '일본(무로마치 막부)' },
 ];
+
+// Reference lines for snapping: Natural Earth 10m land borders + larger rivers (public domain)
+const REF = (() => {
+  const lines = [];
+  const add = (fc) => { for (const f of fc.features) { const g = f.geometry; if (!g) continue; if (g.type === 'LineString') lines.push(g.coordinates); else if (g.type === 'MultiLineString') lines.push(...g.coordinates); } };
+  add(JSON.parse(fs.readFileSync(path.join(RAW, 'ne_10m_admin_0_boundary_lines_land.geojson'))));
+  add(JSON.parse(ms(['-i', path.join(RAW, 'ne_10m_rivers_lake_centerlines.geojson'), '-filter', 'scalerank <= 7', '-o', 'format=geojson', '-']).toString()));
+  return buildRefIndex(lines);
+})();
 
 // 1) Historical world snapshots (aourednik/historical-basemaps, GPL-3.0)
 const files = fs.readdirSync(RAW).filter((f) => /^world_(bc)?\d+\.geojson$/.test(f));
@@ -53,7 +67,19 @@ const snapshots = new Map();
 for (const f of files) {
   const tag = f.match(/^world_(.+)\.geojson$/)[1];
   const year = tag.startsWith('bc') ? -Number(tag.slice(2)) : Number(tag);
-  const simplified = JSON.parse(ms(['-i', path.join(RAW, f), '-filter', 'NAME != null', '-simplify', '5%', 'keep-shapes', '-clean', 'snap-interval=0.01', '-clip', LAND, '-clean', '-filter-slivers', 'min-area=20km2', '-o', 'format=geojson', 'precision=0.005', '-']).toString());
+  // Shared-arc topology -> smooth, densify, snap to 10m modern borders/rivers -> clip to 10m land.
+  const topoPath = path.join(TMP, 'topo.json'), refPath = path.join(TMP, 'refined.json');
+  ms(['-i', path.join(RAW, f), '-filter', 'NAME != null', '-simplify', 'interval=3000', 'keep-shapes', '-clean', 'snap-interval=0.01', '-o', 'format=topojson', 'no-quantization', topoPath]);
+  const topo = JSON.parse(fs.readFileSync(topoPath));
+  fs.writeFileSync(refPath, JSON.stringify({ type: 'FeatureCollection', features: refineTopology(topo, Object.keys(topo.objects)[0], REF) }));
+  const simplified = JSON.parse(ms(['-i', refPath, '-clean', '-clip', LAND, '-clean', '-filter-slivers', 'min-area=20km2', '-simplify', 'dp', 'interval=1000', 'keep-shapes', '-o', 'format=geojson', 'precision=0.001', '-']).toString());
+  if (year === 1400) simplified.features = splitMing1400(simplified.features, REF);
+  // Source coasts are coarse: hand the strip up to the real coast to the adjacent polity.
+  const filled = fillCoastGaps(simplified.features.filter((f) => f.geometry), LAND, ms, TMP);
+  // One more topology pass over the filled set: removes the seams and redundant points of the unions.
+  const filledPath = path.join(TMP, 'filled.json');
+  fs.writeFileSync(filledPath, JSON.stringify({ type: 'FeatureCollection', features: filled.features }));
+  simplified.features = JSON.parse(ms(['-i', filledPath, '-clean', '-simplify', 'dp', 'interval=1000', 'keep-shapes', '-o', 'format=geojson', 'precision=0.001', '-']).toString()).features;
   const feats = [];
   for (const ft of simplified.features) {
     if (!ft.geometry) continue;
@@ -68,10 +94,12 @@ for (const f of files) {
   snapshots.set(year, feats);
   years.push(year);
 }
+// Ming founded 1368: the corrected 1400 map also serves 1368-1399 (the 1300 map shows Yuan).
+if (snapshots.has(1400)) { snapshots.set(1368, structuredClone(snapshots.get(1400))); years.push(1368); }
 years.sort((a, b) => a - b);
 
 // 2) Modern borders + labels (Natural Earth, public domain)
-const innerRaw = JSON.parse(ms(['-i', path.join(RAW, 'ne_50m_admin_0_countries.geojson'), '-simplify', '20%', 'keep-shapes', '-innerlines', '-o', 'format=geojson', 'precision=0.01', '-']).toString());
+const innerRaw = JSON.parse(ms(['-i', path.join(RAW, 'ne_10m_admin_0_boundary_lines_land.geojson'), '-simplify', 'interval=800', '-o', 'format=geojson', 'precision=0.002', '-']).toString());
 const inner = turf.featureCollection((innerRaw.features || innerRaw.geometries.map((g) => ({ type: 'Feature', geometry: g }))).map((f) => ({ type: 'Feature', properties: {}, geometry: f.geometry || f })));
 fs.writeFileSync(path.join(OUT, 'modern-borders.json'), JSON.stringify(inner));
 const ctry = JSON.parse(fs.readFileSync(path.join(RAW, 'ne_110m_admin_0_countries.geojson')));

@@ -3,7 +3,7 @@
 // without gaps; shapes extend over the sea and are clipped to Natural Earth 10m land.
 // Coordinates are [lon, lat]. Years: negative = BC. `from`/`to` inclusive.
 // Lower `prio` wins where simultaneous shapes overlap.
-// Extents follow textbook-level public knowledge; ancient borders are approximate.
+// Extents follow textbook maps (public knowledge), drawn on shared river/ridge lines.
 
 const rev = (a) => [...a].reverse();
 const cat = (...parts) => parts.flat();

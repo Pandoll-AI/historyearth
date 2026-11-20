@@ -1,9 +1,11 @@
+import fs from 'node:fs';
+import { transliterate } from './translit-ko.mjs';
 // Korean display names for frequent historical-basemaps polity names (own translations).
 export const NAME_KO = {
   'Han Empire': '한(漢)', 'Xiongnu': '흉노', 'Roman Empire': '로마 제국', 'Roman Republic': '로마 공화정', 'Byzantine Empire': '비잔티움 제국',
   'Ottoman Empire': '오스만 제국', 'Mongol Empire': '몽골 제국', 'Great Khanate': '원(대칸국)', 'Golden Horde': '킵차크 칸국', 'Ilkhanate': '일 칸국',
   'Chagatai Khanate': '차가타이 칸국', 'Song Empire': '송', 'Tang Empire': '당', 'Sui Empire': '수', 'Ming Chinese Empire': '명', 'Qing Empire': '청',
-  'Manchu Empire': '청', 'Jin Empire': '진(晉)', 'Jin': '진(晉)', 'Liao': '요(거란)', 'Khitans': '거란', 'Jurchens': '여진', 'Toba Wei': '북위',
+  'Manchu Empire': '청', 'Jin Empire': '금', 'Jin': '진', 'Liao': '요(거란)', 'Khitans': '거란', 'Jurchens': '여진', 'Toba Wei': '북위',
   'Sixteen Kingdoms': '5호 16국', 'Göktürks': '돌궐', 'Uyghur Khaganate': '위구르', 'Tibet': '티베트', 'Tibetan Empire': '토번', 'Yamato': '야마토(왜)',
   'Japan': '일본', 'Imperial Japan': '일본 제국', 'Imperial Japan (Fujiwara)': '일본(헤이안)', 'Shogun Japan (Kamakura)': '일본(가마쿠라 막부)',
   'Jōmon': '조몬 문화', 'Late Jomon culture': '조몬 문화 후기', 'Ainu': '아이누', 'Sinic': '중국 문명권', 'Zhoa': '주(周)', 'Zhou': '주(周)', 'Shang': '상(商)',
@@ -200,9 +202,35 @@ export const PATTERNS = [
 
 Object.assign(NAME_KO, {"Hainan": "하이난", "Silla": "신라", "Silia": "신라", "Koguryo": "고구려", "Paekche": "백제", "Korea": "한국", "Koreans": "한반도 사람들", "Paleo-Koreans": "고대 한반도 사람들", "Goryeo": "고려", "Parhae": "발해", "Balhae": "발해", "Korea, Democratic People's Republic of": "북한", "Korea, Republic of": "대한민국", "Min-Yue": "민월", "Nan-Yue": "남월", "Wu": "오(吳)", "Yue": "월(越)", "Xia": "하(夏)", "Yayoi": "야요이 문화", "Southern Xiongnu": "남흉노", "Han Zhao": "전조(한조)", "Northern Liang": "북량", "Nan-Zhao": "남조(南詔)", "Tufan Empire": "토번", "Western Gokturk Khaganate": "서돌궐", "Annam": "안남", "Japan (Warring States)": "일본(전국 시대)", "Tokugawa shogunate": "일본(에도 막부)", "Ainus": "아이누", "Taiwanese Tribes": "타이완 원주민", "Dutch Formosa": "네덜란드령 타이완", "Kuril Islands": "쿠릴 열도", "Sakhalin (RU)": "사할린(러시아)", "Far Eastern SSR": "극동 공화국", "Chinese warlords": "중국 군벌", "Siam": "시암", "Tonkin": "통킹", "Cochin China": "코친차이나", "Champa City States": "참파", "Funan": "푸난", "Chen-La": "진랍", "Kingdom of Pagan": "바간 왕국", "Bagan": "바간 왕국", "Kingdom of Sukhotai": "수코타이 왕국", "Lan Na": "란나 왕국", "Malacca": "믈라카 왕국", "Cambodia": "캄보디아", "Laos": "라오스", "Nepal": "네팔", "Bhutan": "부탄", "Malaysia": "말레이시아", "Malaya": "말라야", "Brunei": "브루나이", "Sri Lanka": "스리랑카", "Ceylon": "실론", "Bangladesh": "방글라데시", "Kyrgyzstan": "키르기스스탄", "Tajikistan": "타지키스탄", "Netherlands Indies": "네덜란드령 동인도", "British East India Company": "영국 동인도 회사", "Chola Empire": "촐라 왕조", "Cholas": "촐라 왕조", "Chola": "촐라 왕조", "Samanid Empire": "사만 왕조", "Khwarazmian dynasty": "호라즘 왕조", "Karkhanids": "카라한 왕조", "White Horde": "백장 칸국", "Bukara Khanate": "부하라 칸국", "Bokhara Khanate": "부하라 칸국", "Maratha": "마라타", "Kushan Principalities": "쿠샨 소국들", "Zhangzhung Kingdom": "샹슝 왕국", "Andronovo": "안드로노보 문화", "Afanasevo": "아파나시에보 문화", "Mon-Khmer": "몬·크메르 사람들", "Tibeto-Burmanese": "티베트·버마 사람들", "Papuan": "파푸아 사람들", "Iron Age chieftainships": "철기 시대 부족들", "Yemen": "예멘", "Armenia": "아르메니아", "Oman": "오만", "Netherlands": "네덜란드", "Belgium": "벨기에", "Switzerland": "스위스", "Romania": "루마니아", "Bulgaria": "불가리아", "Serbia": "세르비아", "Georgia": "조지아", "Iceland": "아이슬란드", "Tunisia": "튀니지", "Cuba": "쿠바", "Haiti": "아이티", "Ghana": "가나", "Congo": "콩고", "Benin": "베냉", "Senegal": "세네갈", "Liberia": "라이베리아", "Uruguay": "우루과이", "Ecuador": "에콰도르", "Teotihuacan": "테오티우아칸", "Monte Albán": "몬테알반", "Cyprus": "키프로스", "Sicily": "시칠리아", "Sardinia": "사르데냐", "Guatemala": "과테말라", "Honduras": "온두라스", "Nicaragua": "니카라과", "Panama": "파나마"});
 
-export function nameKo(n) {
+// Manual table (scripts/name-ko-table.txt), then structural rules, then transcription.
+const TABLE = Object.fromEntries(fs.readFileSync(new URL('./name-ko-table.txt', import.meta.url), 'utf8').split('\n')
+  .filter((l) => l && !l.startsWith('#') && l.includes('|')).map((l) => l.split('|').map((x) => x.trim())));
+const OWNER = { UK: '영국령', GB: '영국령', France: '프랑스령', FR: '프랑스령', Spain: '에스파냐령', Portugal: '포르투갈령', Netherlands: '네덜란드령', Italy: '이탈리아령', IT: '이탈리아령', USA: '미국령', US: '미국령', Egypt: '이집트령', Belgium: '벨기에령', Danemark: '덴마크령', Denmark: '덴마크령', RU: '러시아령', Soviet: '소련 점령', Germany: '독일령', Japan: '일본령' };
+const SUFFIX = [
+  [/^Kingdom of (?:the )?(.+)$/, '왕국'], [/^Principality of (.+)$/, '공국'], [/^Duchy of (.+)$/, '공국'], [/^Grand Duchy of (.+)$/, '대공국'],
+  [/^Sultanate of (.+)$/, '술탄국'], [/^Emirate of (.+)$/, '에미르국'], [/^Republic of (.+)$/, '공화국'],
+  [/^(.+) Empire$/, '제국'], [/^(.+) Khanate$/i, '칸국'], [/^(.+) Kingdoms?$/i, '왕국'], [/^(.+) Sultanate$/, '술탄국'], [/^(.+) Emirates?$/, '에미르국'],
+  [/^(.+) Caliphate$/, '칼리파국'], [/^(.+) dynasty$/i, '왕조'], [/^(.+) [Ss]tates$/, '국가들'], [/^(.+) [Ss]tate$/, '국가'], [/^(.+) [Tt]ribes$/, '부족들'],
+  [/^(.+) Islands$/, '제도'], [/^(.+) [Cc]onfedera(?:cy|tion)$/, '연맹'], [/^(.+) (?:[Cc]omplex|[Ff]ocus|[Cc]ulture)$/, '문화'], [/^(.+) Horde$/, '칸국'],
+];
+/** Korean name in Hangul only (Hanja glosses such as 오(吳) are dropped). */
+export function nameKo(n, inner = false) {
+  return nameKoRaw(n, inner).replace(/\s*\([\u3400-\u9fff]+\)/gu, '').trim();
+}
+function nameKoRaw(n, inner = false) {
   if (!n) return '';
+  n = n.trim();
+  if (!/\p{L}/u.test(n)) return '';
   if (NAME_KO[n]) return NAME_KO[n];
+  if (TABLE[n]) return TABLE[n];
+  const own = n.match(/^(.+?) \((.+)\)$/);
+  if (own) return `${nameKo(own[1])}(${OWNER[own[2]] ?? nameKo(own[2])})`;
+  const cult = n.match(/^([A-Z][\p{L}-]+(?: [A-Z][\p{L}-]+)?) (?:[Cc]ultures?|Complex|Focus)$/u);
+  if (cult) return `${nameKo(cult[1], true)} 문화`;
   for (const [re, ko] of PATTERNS) if (re.test(n)) return ko;
-  return n;
+  for (const [re, ko] of SUFFIX) { const m = n.match(re); if (m) return `${nameKo(m[1], true)} ${ko}`; }
+  // Remaining single names are mostly peoples: transcribe and mark as a group.
+  const parts = n.split(/[\s/]+/).filter(Boolean).map((w) => w.split('-').map(transliterate).join(''));
+  const uniq = parts.filter((p, i) => p && p !== parts[i - 1]);
+  return inner ? uniq.join(' ') : `${uniq.join(' ')}족`;
 }

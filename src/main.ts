@@ -1,8 +1,8 @@
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './style.css';
 import maplibregl from 'maplibre-gl';
-import { createMap } from './map/globe';
-import { LabelLayer, escapeHtml, type LabelItem } from './map/labels';
+import { createMap, FADE_LAYERS, fadeOpacity } from './map/globe';
+import { LabelLayer, escapeHtml, setLabelFade, type LabelItem } from './map/labels';
 import { ParticleLayer, type ParticleConfig } from './map/particles';
 import { drawHeat, drawNight, setLayerVisible } from './map/overlays';
 import { BATTLES, battleFrame, clearBattle, stageAt, type Battle } from './map/battles';
@@ -43,22 +43,57 @@ function fly(c: Camera, duration = 2600): void {
 }
 
 // ---------- year, borders, labels ----------
-let appliedSnapshot: number | null = null;
+// Year changes crossfade: the old data moves to the "-prev" twins and fades out
+// while the new data fades in. ?fade=ms overrides the duration (tests use it).
+const FADE_MS = Math.max(0, Number(params.get('fade') ?? 400));
+document.documentElement.style.setProperty('--fade', `${FADE_MS}ms`);
+setLabelFade(FADE_MS);
+type GJ = { type: 'FeatureCollection'; features: any[] };
+const EMPTY: GJ = { type: 'FeatureCollection', features: [] };
+let shown = { key: '', hist: EMPTY, korea: EMPTY };
+let fadeRaf = 0;
+function setFade(f: number): void {
+  for (const id of Object.keys(FADE_LAYERS)) {
+    map.setPaintProperty(id, FADE_LAYERS[id].prop, fadeOpacity(id, f));
+    map.setPaintProperty(`${id}-prev`, FADE_LAYERS[id].prop, fadeOpacity(id, 1 - f));
+  }
+}
+function showBorders(key: string, hist: GJ, korea: GJ): void {
+  if (key === shown.key) return;
+  const src = (id: string) => map.getSource(id) as maplibregl.GeoJSONSource | undefined;
+  cancelAnimationFrame(fadeRaf);
+  src('histPrev')?.setData(shown.hist);
+  src('koreaPrev')?.setData(shown.korea);
+  src('hist')?.setData(hist);
+  src('korea')?.setData(korea);
+  shown = { key, hist, korea };
+  const t0 = performance.now();
+  const step = (): void => {
+    const f = FADE_MS ? Math.min(1, (performance.now() - t0) / FADE_MS) : 1;
+    const e = f * f * (3 - 2 * f);
+    setFade(e);
+    if (f < 1) fadeRaf = requestAnimationFrame(step);
+    else { src('histPrev')?.setData(EMPTY); src('koreaPrev')?.setData(EMPTY); }
+  };
+  setFade(0);
+  fadeRaf = requestAnimationFrame(step);
+}
+
 let loadToken = 0;
 async function applyBorders(year: number): Promise<void> {
   const snap = data.snapshot(year);
   const kr = data.koreaAt(year);
-  (map.getSource('korea') as any)?.setData({ type: 'FeatureCollection', features: kr });
+  const token = ++loadToken;
+  const fc = await data.load(snap);
+  if (token !== loadToken) return;
+  // World polygons flagged as Korean are replaced by the own overlay when it has data.
   const hideKr = kr.length > 0;
-  for (const id of ['hist-fill', 'hist-line', 'hist-casing']) map.setFilter(id, hideKr ? ['!=', ['get', 'kr'], 1] : null);
-  if (snap !== appliedSnapshot) {
-    const token = ++loadToken;
-    const fc = await data.load(snap);
-    if (token !== loadToken) return;
-    appliedSnapshot = snap;
-    (map.getSource('hist') as any)?.setData(fc);
-    polities = fc.features.map((f) => f.properties as PolityLabel);
+  const key = `${snap}|${kr.map((f) => f.properties.id).join(',')}`;
+  if (key !== shown.key) {
+    const hist = hideKr ? { type: 'FeatureCollection' as const, features: fc.features.filter((f) => (f.properties as any)?.kr !== 1) } : fc;
+    showBorders(key, hist, { type: 'FeatureCollection', features: kr as any });
   }
+  polities = fc.features.map((f) => f.properties as PolityLabel);
   updateHistLabels(year);
 }
 
@@ -197,7 +232,7 @@ function renderLayerPanel(s: AppState): void {
   if (s.layer === 'geo') {
     p.hidden = false;
     p.innerHTML = `<h3>지리·역사</h3>
-      <p>아래 막대를 움직이면 그 해의 나라 경계가 바뀌어요. 한반도의 나라들은 이 앱에서 따로 그린 <b>대략적인 범위</b>예요.</p>
+      <p>아래 막대를 움직이면 그 해의 나라 경계가 바뀌어요. 위쪽 검색 칸에 나라 이름을 넣으면 그 나라로 가요.</p>
       <div class="ctrl"><label for="exag">지형 과장 <b id="exag-v">${s.exaggeration}배</b></label></div>
       <input id="exag" type="range" min="1" max="5" step="0.5" value="${s.exaggeration}" aria-label="지형 과장 배율" />
       <p class="muted">전투 표시(⚔)를 누르면 자세한 장면을 볼 수 있어요. 오른쪽 아래 버튼으로 기울이거나 돌려 보세요.</p>`;
@@ -251,7 +286,7 @@ function renderLayerPanel(s: AppState): void {
 let heatTouched = false;
 function applyLayer(s: AppState, prev: AppState | null): void {
   const geo = s.layer === 'geo';
-  for (const id of ['hist-fill', 'hist-line', 'hist-casing', 'korea-fill', 'korea-line', 'korea-casing']) setLayerVisible(map, id, geo);
+  for (const id of Object.keys(FADE_LAYERS)) { setLayerVisible(map, id, geo); setLayerVisible(map, `${id}-prev`, geo); }
   histLabels.setVisible(geo || s.modernBorders);
   setLayerVisible(map, 'rivers', geo || s.layer === 'monsoon');
   setLayerVisible(map, 'jet', s.layer === 'dust');

@@ -1,0 +1,939 @@
+# Korean names for polity/group names in historical-basemaps (own translations).
+# Format: English source name|Korean name. Spelling follows the National Institute of Korean
+# Language loanword rules and school textbook usage where a standard form exists.
+(Russian and Japanese claim)|러시아·일본 분쟁 지역
+Abdelouadides|자이얀 왕조
+Abnaki|아베나키족
+Aboriginal Tasmanians|태즈메이니아 원주민
+Aboriginal tribes|오스트레일리아 원주민
+Acadian Peninsula (UK)|아카디아(영국령)
+Accra|아크라
+Aceh|아체 술탄국
+Adal|아달 술탄국
+Africa|아프리카
+Aghlabid Emirate|아글라브 왕조
+Ahmadnagar|아마드나가르 술탄국
+Air|아이르 술탄국
+Akan|아칸족
+Alabama|앨라배마족
+Alans|알란족
+Albania|알바니아
+Algeria (FR)|알제리(프랑스령)
+Algeria (France)|알제리(프랑스령)
+Algiers|알제
+Algonquin|알곤킨족
+Almoravid dynasty|무라비트 왕조
+Alwa|알와 왕국
+Ambur|암부르
+American Samoa|아메리칸사모아
+Anasazi|아나사지 문화
+Anatolian tribes|아나톨리아 부족들
+Andean states and chiefdoms|안데스 국가·족장 사회
+Andorra|안도라
+Angevin Empire|앙주 제국
+Anglo-Egyptian Sudan|영국·이집트령 수단
+Anglo-Saxons|앵글로색슨족
+Angola (Portugal)|앙골라(포르투갈령)
+Anguilla|앵귈라
+Antarctica|남극
+Antigua and Barbuda|앤티가 바부다
+Apache|아파치족
+Apalachee|애펄래치족
+Arabia|아라비아
+Arabia (Nejd)|아라비아(나지드)
+Aragón|아라곤 왕국
+Arakan|아라칸 왕국
+Arakan (Indian princely state)|아라칸(인도 번왕국)
+Arapaho|아라파호족
+Arawaks|아라와크족
+Arikara|아리카라족
+Arma|아르마 왕국
+Armorica|아르모리카
+Arran|아란
+Artsakh|아르차흐
+Asante|아샨티 왕국
+Assam|아삼
+Assiniboin|어시니보인족
+Astrakhan Khanate|아스트라한 칸국
+Asturias|아스투리아스 왕국
+Atropatene|아트로파테네
+Austria|오스트리아
+Austrian Netherlands|오스트리아령 네덜란드
+Ava|아바 왕국
+Avanti|아반티
+Aymara kingdoms|아이마라 왕국들
+Azandes|아잔데족
+Azerbaijan|아제르바이잔
+Baden|바덴
+Bagirmi|바기르미 술탄국
+Bahamas|바하마
+Bahawalpur|바하왈푸르
+Bahmani Kingdom|바흐마니 술탄국
+Baltic tribes|발트 부족들
+Balts|발트족
+Banas|바나 왕조
+Bantu|반투족
+Barbados|바베이도스
+Barbados (UK)|바베이도스(영국령)
+Barotse|바로체 왕국
+Bashkirs|바시키르족
+Basques|바스크족
+Basutoland|바수톨란드
+Batavian Republic|바타비아 공화국
+Bavaria|바이에른
+Beaker|비커 문화
+Bedouins|베두인
+Beja people|베자족
+Belgian Congo|벨기에령 콩고
+Belize|벨리즈
+Bengal|벵골
+Beothuk|베오투크족
+Berber Tribes|베르베르 부족들
+Beylik of Aydin|아이든 베일리크
+Bidar|비다르 술탄국
+Bijapur|비자푸르 술탄국
+Bithynia|비티니아
+Blackfoot|블랙풋족
+Blemmyes|블렘미에스족
+Blue Horde|청장 칸국
+Boethuk|베오투크족
+Boii|보이족
+Bosnia|보스니아
+Bosnia and Herzegovina|보스니아 헤르체고비나
+Bosnia-Herzegovina|보스니아 헤르체고비나
+Bosporan Kingdom|보스포로스 왕국
+Bosporian Kingdom|보스포로스 왕국
+Brandenburg|브란덴부르크
+Bremen|브레멘
+Britany|브르타뉴
+British American colonies|영국령 아메리카 식민지
+British East Africa|영국령 동아프리카
+British Guiana|영국령 기아나
+British Protectorate|영국 보호령
+British Somaliland|영국령 소말릴란드
+Broërec|브로에레크
+Brunswick|브라운슈바이크
+Buganda|부간다 왕국
+Bulgar Khanate|불가르 칸국
+Bulgars|불가르족
+Bundelkhand|분델칸드
+Bunyoro|부뇨로 왕국
+Burgandy|부르고뉴
+Burgundians|부르군트족
+Burkina Faso|부르키나파소
+Burmese kingdoms|버마 왕국들
+Burundi|부룬디
+Buwayhid Emirates|부와이 왕조
+Buyid Emirate|부와이 왕조
+Buyid dynasty|부와이 왕조
+Byelarus|벨라루스
+Caddo|캐도족
+Calabar|칼라바르
+Caliphate of Córdoba|코르도바 칼리파국
+Calusa|칼루사족
+Canaan|가나안
+Cape Colony|케이프 식민지
+Cappadocia|카파도키아
+Carnatic|카르나타크
+Castile|카스티야 왕국
+Castilla|카스티야 왕국
+Castille|카스티야 왕국
+Catawba|카토바족
+Caucasian Albania|캅카스 알바니아
+Celtiberians|켈티베리아족
+Celtic kingdoms|켈트 왕국들
+Ceylon (Dutch)|실론(네덜란드령)
+Chalukya Empire|찰루키아 왕조
+Chandellas|찬델라 왕조
+Chauhans|차우한 왕조
+Chavin|차빈 문화
+Cheras|체라 왕조
+Cherokee|체로키족
+Cheyenne|샤이엔족
+Chickasaw|치카소족
+Chimú Empire|치무 왕국
+Chinchoros|친초로 문화
+Choctaw|촉토족
+Chorrera|초레라 문화
+Chumash|추마시족
+Chūzan|주잔 왕국
+Cimerians|킴메르족
+Circars|서카르
+Cochin|코친
+Colchis|콜키스
+Comanche|코만치족
+Comté de Toulouse|툴루즈 백국
+Congo (France)|콩고(프랑스령)
+Corsica|코르시카
+Costa Rica|코스타리카
+Crete|크레타
+Crimean Khanate|크림 칸국
+Croatia|크로아티아
+Croatian kingdom|크로아티아 왕국
+Crow|크로족
+Cuba (Spain)|쿠바(에스파냐령)
+Cuman-Kipchak confederation|쿠만·킵차크 연맹
+Curonians|쿠르족
+Cushites|쿠시계 민족
+Cycladic|키클라데스 문화
+Cyraneica (UK Lybia)|키레나이카(영국 관리)
+Cyrenaica|키레나이카
+Czech Republic|체코
+Czechoslovakia|체코슬로바키아
+Czechs|체코인
+Dacia|다키아
+Dacians|다키아인
+Dahomey|다호메이 왕국
+Damot|다모트 왕국
+Danemark|덴마크
+Danes|데인족
+Danube Bulgars|도나우 불가르족
+Danzig|단치히
+Dardania|다르다니아
+Darfur|다르푸르 술탄국
+Delaware|델라웨어족
+Dendi Kingdom|덴디 왕국
+Derbent|데르벤트
+Djibouti|지부티
+Dodecanese Islands|도데카니사 제도
+Dominica|도미니카 연방
+Dominican Republic|도미니카 공화국
+Dominion of Newfoundland|뉴펀들랜드 자치령
+Dorset|도싯 문화
+Duchy of Benevento|베네벤토 공국
+Duchy of Swabia|슈바벤 공국
+Dumnonia|둠노니아
+Dumonii|둠노니족
+Durdzuks|두르주크족
+Dutch Brazil|네덜란드령 브라질
+Dutch Guiana|네덜란드령 기아나
+Dutch Guinea|네덜란드령 기니
+Dutch Republic|네덜란드 공화국
+Dutch settlements|네덜란드 정착지
+Dvaravati|드바라바티 왕국
+East Francia|동프랑크 왕국
+East Germany|동독
+East Getaes|동게타이족
+East Java|동자와
+East Prussia|동프로이센
+El Paraiso|엘파라이소 문화
+El Salvador|엘살바도르
+Electoral Hesse|헤센카셀 선제후국
+Emirate of Bin Shal'an|빈샬란 에미르국
+Emirate of Sicily|시칠리아 에미르국
+Emirate of Tiflis|트빌리시 에미르국
+Emirate of the White Sheep Turks|백양 왕조
+Empire of Alexander|알렉산드로스 제국
+Empire of Ghana|가나 왕국
+England and Ireland|잉글랜드·아일랜드
+English territory|잉글랜드령
+Equatorial Guinea|적도 기니
+Erie|이리족
+Eritrea|에리트레아
+Eritrea (Italy)|에리트레아(이탈리아령)
+Essequibo|에세키보
+Essex|에식스 왕국
+Estonia|에스토니아
+Ests|에스토니아인
+Ethiopia (Italy)|에티오피아(이탈리아령)
+Ethiopian Highland Peoples|에티오피아 고원 사람들
+Etrurians|에트루리아인
+Fante|판테족
+Fezzan (Frech Lybia)|페잔(프랑스 관리)
+Fiji|피지
+Finland|핀란드
+Finnmark|핀마르크
+Finns|핀족
+First Samori Empire|사모리 제국
+Flathead|플랫헤드족
+Florence|피렌체
+Florida|플로리다
+Florida (Spain)|플로리다(에스파냐령)
+Fox|폭스족
+Franche-Comté|프랑슈콩테
+French Cameroons|프랑스령 카메룬
+French Guiana|프랑스령 기아나
+French Somaliland|프랑스령 소말릴란드
+Frisians|프리슬란트족
+Fulani Empire|풀라니 제국
+Funj|푼즈 술탄국
+Futa Jalon|푸타잘론
+Futa Toro|푸타토로
+Gabon|가봉
+Gambia|감비아
+Gambia, The|감비아
+Gandhāra|간다라
+Gaya|가야
+Geats|예아트족
+Geneva|제네바
+Genoa|제노바 공화국
+Georgian Kingdom|조지아 왕국
+German E. Africa (Tanganyika)|독일령 동아프리카(탕가니카)
+German South-West Africa|독일령 남서아프리카
+Germany (France)|독일(프랑스 점령)
+Germany (Soviet)|독일(소련 점령)
+Germany (UK)|독일(영국 점령)
+Germany (USA)|독일(미국 점령)
+Gilbert and Ellice Islands|길버트 엘리스 제도
+Goa|고아
+Golconda|골콘다 술탄국
+Golkonda|골콘다 술탄국
+Gold Coast|골드코스트
+Gold Coast (GB)|골드코스트(영국령)
+Granada|그라나다 왕국
+Grand Duchy of Finland|핀란드 대공국
+Grand Duchy of Hesse|헤센 대공국
+Great Britain|그레이트브리튼
+Great Moravia|대모라비아
+Great Zimbabwe|그레이트짐바브웨
+Greek colonies|그리스 식민 도시
+Grenada|그레나다
+Griqualand West|서그리콸랜드
+Gros Ventre|그로방트르족
+Guadeloupe|과들루프
+Guam|괌
+Guanches|관체족
+Guiana|기아나
+Guinea|기니
+Guinea-Bissau|기니비사우
+Guinea-Bissau (Portugal)|기니비사우(포르투갈령)
+Gurjara Pratihara|구르자라·프라티하라 왕조
+Guyana|가이아나
+Guyana (Netherlands)|가이아나(네덜란드령)
+Habsburg Austria|합스부르크 오스트리아
+Habsburg Netherlands|합스부르크 네덜란드
+Hafsid Caliphate|하프스 왕조
+Hail|하일 토후국
+Hamburg|함부르크
+Hanover|하노버
+Harapunchai|하리푼차이 왕국
+Harer (Egypt)|하라르(이집트령)
+Haripunjaya|하리푼차이 왕국
+Hausa States|하우사 국가들
+Hejaz|헤자즈
+Helvetic Republic|헬베티아 공화국
+Heruli|헤룰리족
+Hindu Shahis|힌두 샤히 왕조
+Hindu kingdoms and republics|힌두 왕국·공화국들
+Hindu states|힌두 국가들
+Hispaniola (Spain)|히스파니올라(에스파냐령)
+Hohenzollern|호엔촐레른
+Hokuzan|호쿠잔 왕국
+Holstein|홀슈타인
+Hong Kong|홍콩
+Hopi|호피족
+Hopie|호피족
+Huns|훈족
+Huron|휴런족
+Hurrian Kingdoms|후르리 왕국들
+Hövsgöl Nuur|흡스골 호수
+Ibadan|이바단
+Ibadites|이바드파
+Icelandic Commonwealth|아이슬란드 자유국
+Idrisid Caliphate|이드리스 왕조
+Ifat|이파트 술탄국
+Illinois|일리노이족
+Illyrians|일리리아인
+Imbangala|임방갈라족
+Imerina|이메리나 왕국
+Imperial Hungary|헝가리 왕국(합스부르크)
+Innu|이누족
+Iowa|아이오와족
+Ireland|아일랜드
+Irlanda|아일랜드
+Iroquois|이로쿼이족
+Islamic and Hindu states|이슬람·힌두 국가들
+Islamic city-states|이슬람 도시 국가들
+Islamic states|이슬람 국가들
+Israel|이스라엘
+Italian Somaliland|이탈리아령 소말릴란드
+Itelmen|이텔멘족
+Ivory Coast|코트디부아르
+Jamaica|자메이카
+Jamaica (UK)|자메이카(영국령)
+Jordan|요르단
+Judea|유대
+Jukun|주쿤 왕국
+Kaarta|카르타 왕국
+Kadambas|카담바 왕조
+Kakheti-Hereti|카헤티·헤레티
+Kalinga|칼링가
+Kamarupa|카마루파 왕국
+Kamerun|카메룬(독일령)
+Kanara|카나라
+Kanauj|카나우지
+Kandy|캔디 왕국
+Kanem|카넴 왕국
+Karakalpaks|카라칼파크족
+Karelians|카렐리야인
+Kashmir and Ladakh|카슈미르·라다크
+Kasi|카시
+Kazembe|카젬베 왕국
+Kediri|크디리 왕국
+Kent|켄트 왕국
+Kerma|케르마 왕국
+Khanty|한티족
+Kimek-Kipchak khaganate|키멕·킵차크 칸국
+Kingdom of Antigonus|안티고노스 왕국
+Kingdom of Brazil|브라질 왕국
+Kingdom of David and Solomon|다윗·솔로몬 왕국
+Kingdom of Gala|갈라 왕국
+Kingdom of Georgia|조지아 왕국
+Kingdom of Hawaii|하와이 왕국
+Kingdom of Hungary|헝가리 왕국
+Kingdom of Ireland|아일랜드 왕국
+Kingdom of Italy|이탈리아 왕국
+Kingdom of Kapisa|카피사 왕국
+Kingdom of Kashmir|카슈미르 왕국
+Kingdom of Kassander|카산드로스 왕국
+Kingdom of Lysimachus|리시마코스 왕국
+Kingdom of Norway|노르웨이 왕국
+Kingdom of Sardinia|사르데냐 왕국
+Kingdom of Sind|신드 왕국
+Kingdom of Syphax|시팍스 왕국
+Kingdom of Zunbil|준빌 왕국
+Kingdom of the Two Sicilies|양시칠리아 왕국
+Kiowa|키오와족
+Klachuris|칼라추리 왕조
+Komi|코미족
+Kong|콩 왕국
+Kong Empire|콩 제국
+Koryaks|코랴크족
+Kosala|코살라
+Kryvichs|크리비치족
+Kuba|쿠바 왕국
+Kurs|쿠르족
+Kuru|쿠루
+Kurykans|쿠리칸족
+Kush|쿠시 왕국
+Kushites|쿠시인
+Kuwait|쿠웨이트
+Kwakwaka'wakw|콰콰카와쿠족
+Kwarezm|호라즘
+Lagos|라고스
+Lahore|라호르
+Lake Segozerskoye|세고제로 호수
+Lake Vygozero|비고제로 호수
+Lambakannas|람바칸나 왕조
+Laotian states|라오 왕국들
+Latvia|라트비아
+Laurel complex|로럴 문화
+Lavo|라보 왕국
+Lebanon|레바논
+Lesotho|레소토
+León|레온 왕국
+Libya (IT)|리비아(이탈리아령)
+Liechtenstein|리히텐슈타인
+Lippe-Detmold|리페데트몰트
+Lithuania|리투아니아
+Lombard duchies|롬바르드 공국들
+Lombard principalities|롬바르드 공국들
+Lombardy|롬바르디아
+Lopburi Kingdom|롭부리 왕국
+Louisiana|루이지애나
+Lozi|로지 왕국
+Luba|루바 왕국
+Lucca|루카
+Luisiana|루이지애나
+Lunda|룬다 왕국
+Luxembourg|룩셈부르크
+Lübeck|뤼베크
+Macedon and Hellenic League|마케도니아·헬라스 동맹
+Macedonia|마케도니아
+Madagascar (France)|마다가스카르(프랑스령)
+Madras|마드라스
+Magyars|마자르족
+Mahican|마이컨족
+Mahra|마흐라 술탄국
+Mahratta states|마라타 국가들
+Maitraka Kingdom|마이트라카 왕국
+Makkura|마쿠리아 왕국
+Malabar|말라바르
+Malagasy|말라가시
+Malawi|말라위
+Malay|말레이
+Malaysian Islamic states|말레이 이슬람 국가들
+Malla|말라
+Malta|몰타
+Mandatory Palestine (GB)|팔레스타인(영국 위임 통치)
+Mandes|만데족
+Maoris|마오리족
+Martinique|마르티니크
+Martinique (France)|마르티니크(프랑스령)
+Mascat|무스카트
+Maskat|무스카트
+Massachusett|매사추셋족
+Massachusetts Bay|매사추세츠만 식민지
+Mataram|마타람 왕국
+Mauretania|마우레타니아
+Mauri|마우리족
+Maya|마야
+Maya states|마야 국가들
+Mayas|마야인
+Mecklenburg-Schwerin|메클렌부르크슈베린
+Mecklenburg-Strelitz|메클렌부르크슈트렐리츠
+Mercia|머시아 왕국
+Merina Kingdom|메리나 왕국
+Merinides|마린 왕조
+Mesoamerican city-states and chiefdoms|메소아메리카 도시 국가·족장 사회
+Mesopotamia (GB)|메소포타미아(영국 점령)
+Mi'kma'ki|미크맥족
+Miami|마이애미족
+Milan|밀라노 공국
+Milano (Austria)|밀라노(오스트리아령)
+Minoan|미노스 문명
+Missouri|미주리족
+Miwok|미웍족
+Mixtec Empire|믹스텍 왕국
+Mixtecs|믹스텍족
+Moche|모체 문화
+Modena|모데나
+Moldova|몰도바
+Mon States|몬 왕국들
+Mon state|몬 왕국
+Montagnais Innu|몽타녜족
+Montenegro|몬테네그로
+Montserrat|몬트세랫
+Moravians|모라비아인
+Mordvinians|모르드바인
+Morocco (France)|모로코(프랑스 보호령)
+Mosquito Coast|모스키토 해안
+Mossi States|모시 왕국들
+Mozambique (Portugal)|모잠비크(포르투갈령)
+Multan|물탄
+Muscat|무스카트
+Muscat and Oman|무스카트 오만
+Muskogee|머스코지족
+Mwenemutapa|무타파 왕국
+Mysore|마이소르 왕국
+Mysore (Indian princely state)|마이소르(인도 번왕국)
+Māori|마오리족
+Nabatean Kingdom|나바테아 왕국
+Namazga|나마즈가 문화
+Nanzan|난잔 왕국
+Naples|나폴리 왕국
+Nassau|나사우
+Natal|나탈
+Natchez|나체즈족
+Navaho|나바호족
+Navajo|나바호족
+Navarre|나바라 왕국
+Nazca|나스카 문화
+Ndebele|은데벨레족
+Ndongo|은동고 왕국
+Nejd|나지드
+Neterlands|네덜란드
+Netherlands Antilles|네덜란드령 안틸레스
+Neustria|네우스트리아
+New Amsterdam|뉴암스테르담
+New Caledonia|누벨칼레도니
+New France|누벨프랑스
+New Hebrides|뉴헤브리디스
+New South Wales|뉴사우스웨일스
+New South Wales (UK)|뉴사우스웨일스(영국령)
+New Zealand|뉴질랜드
+Nez Perce|네즈퍼스족
+Nganasan|응가나산족
+Nguni|응구니족
+Niue|니우에
+Nizam's Dominions|하이데라바드 번왕국
+Nkore|은코레 왕국
+Nobatia|노바티아 왕국
+Nogai Horde|노가이 칸국
+Norsemen|노르드인
+Norte Chico|노르테치코 문명
+Northern Paiute|북파이우트족
+Northern Rhodesia|북로디지아
+Northern Territory (UK)|노던 준주(영국령)
+Northmen|노르드인
+Northumbria|노섬브리아 왕국
+Novgorod-Seversky|노브고로드세베르스키 공국
+Numidia|누미디아
+Nyasaland|니아살랜드
+Odrysian Kingdom|오드리사이 왕국
+Oghuz|오구즈족
+Oghuz Turks|오구즈 튀르크
+Oldenburg|올덴부르크
+Olmec|올메카 문명
+Omaha|오마하족
+Oman (British Raj)|오만(영국 보호)
+Opobo|오포보
+Orange Free State|오렌지 자유국
+Orissa|오리사
+Oromo|오로모족
+Osage|오세이지족
+Other Rus Principalities|기타 루스 공국들
+Otomies|오토미족
+Ottoman Sultanate|오스만 제국
+Oudh|아와드
+Ovimbundu|음분두족
+Oxus|옥수스 문명
+Oyo|오요 왕국
+Palatinate|팔츠
+Paleo-Inuit|고대 이누이트
+Pallava|팔라바 왕조
+Pallava state|팔라바 왕조
+Pallavas|팔라바 왕조
+Pancala|판찰라
+Pandya state|판디아 왕조
+Pandyas|판디아 왕조
+Papago|파파고족
+Paracas|파라카스 문화
+Paramas|파라마라 왕조
+Parma|파르마
+Pawnee|포니족
+Pechenegs|페체네그족
+Pegu|페구 왕국
+Pergamon|페르가몬 왕국
+Permians|페름인
+Persi|페르시아
+Peshemegs|페체네그족
+Phrygians|프리기아인
+Picts|픽트족
+Pima|피마족
+Pomerania|포메른
+Pomo|포모족
+Ponca|폰카족
+Portuguese Brazil|포르투갈령 브라질
+Portuguese East Africa|포르투갈령 동아프리카
+Portuguese Guinea|포르투갈령 기니
+Potawatomi|포타와토미족
+Pratiharas|프라티하라 왕조
+Principality of Galicia-Volhynia|할리치·볼히니아 공국
+Principality of Kyiv|키예프 공국
+Principality of Novgorod|노브고로드 공화국
+Principality of Polotsk|폴로츠크 공국
+Principality of Vladimir-Suzdal|블라디미르·수즈달 공국
+Principality of Wallachia|왈라키아 공국
+Proto-Slavs|원시 슬라브족
+Prussians|프로이센인
+Pskov|프스코프
+Puerto Rico|푸에르토리코
+Pyu state|퓨 도시 국가
+Qataban|카타반 왕국
+Qatar|카타르
+Quebec|퀘벡
+Queensland (UK)|퀸즐랜드(영국령)
+Rabih az-Zubayr|라비흐 국가
+Rajastan|라자스탄
+Rajput Clans and Small States|라지푸트 씨족·소국들
+Rajput kingdoms|라지푸트 왕국들
+Rajputana|라지푸타나
+Rajputs|라지푸트
+Rapa Nui|라파누이
+Rashtrakuta|라슈트라쿠타 왕조
+Rashtrakuta state|라슈트라쿠타 왕조
+Raška|라슈카
+Republic of Kraków|크라쿠프 자유시
+Republic of the Seven Zenden|일곱 섬 공화국
+Rhodesia|로디지아
+Rift Valley States|리프트 계곡 국가들
+Rio De Oro|리오데오로
+Rozwi|로즈위 제국
+Rupert's Land|루퍼츠랜드
+Rus' Khaganate|루스 카가나테
+Rwanda|르완다
+Rwanda (Belgium)|르완다(벨기에령)
+Ryazan|랴잔 공국
+S. Xiongnu|남흉노
+Saar Protectorate|자르 보호령
+Saba|사바 왕국
+Sabines|사비니족
+Sabini|사비니족
+Sabirs|사비르족
+Saces|사카족
+Saffarids|사파르 왕조
+Saharan Nomadic Tribes|사하라 유목 부족들
+Saint Barthelemy|생바르텔레미
+Saint Kitts and Nevis|세인트키츠 네비스
+Saint Kitts and Nevis (UK)|세인트키츠 네비스(영국령)
+Saint Lucia|세인트루시아
+Saint Martin|생마르탱
+Saint Vincent and the Grenadines|세인트빈센트 그레나딘
+Saipan|사이판
+Sami|사미족
+Samis|사미족
+Samnites|삼니움족
+Samoa|사모아
+Samoyèdes|사모예드족
+San Marino|산마리노
+Santo Domingo (Spain)|산토도밍고(에스파냐령)
+Sardinia-Piedmont|사르데냐·피에몬테
+Sasanian dependencies|사산 왕조 속령
+Satavahanihara|사타바하나 왕조
+Savoy|사보이아
+Savoy-Piedmont|사보이아·피에몬테
+Saxony|작센
+Saylan|실론
+Schaumburg-Lippe|샤움부르크리페
+Schleswig|슐레스비히
+Scots|스코트족
+Second Samori Empire|제2 사모리 제국
+Segu|세구 왕국
+Seljuk Caliphate|셀주크 제국
+Seljuk Empire|셀주크 제국
+Semites|셈족
+Senas|세나 왕조
+Senegal (FR)|세네갈(프랑스령)
+Severians|세베랴네족
+Shan states|샨 국가들
+Shaskanka|샤샨카 왕국
+Shawnee|쇼니족
+Shirvan|시르반
+Shoa|쇼아 왕국
+Shona|쇼나족
+Shoshoni|쇼쇼니족
+Shuar|슈아르족
+Sierra Leone|시에라리온
+Sikhs|시크 왕국
+Sikkim (Indian princely state)|시킴(인도 번왕국)
+Simhala|싱할라 왕국
+Sind|신드
+Sindh|신드
+Sinhalese kingdom|싱할라 왕국
+Sinhalese kingdoms|싱할라 왕국들
+Sintashta|신타시타 문화
+Skirii|스키리족
+Slavic tribes|슬라브 부족들
+Slovakia|슬로바키아
+Slovenia|슬로베니아
+Sokoto Caliphate|소코토 칼리파국
+Solankis|솔랑키 왕조
+Somvamsis|솜바시 왕조
+Soomra Emirate|숨라 왕조
+Sotho|소토족
+South Australia (UK)|사우스오스트레일리아(영국령)
+South Carolina|사우스캐롤라이나
+South Russia|남러시아
+Southern Cameroon|남카메룬
+Southern Paiute|남파이우트족
+Southern Rhodesia|남로디지아
+Spanish Guinea|에스파냐령 기니
+Spanish Habsburg|에스파냐 합스부르크
+Spanish Morocco|에스파냐령 모로코
+Spanish Sahara|에스파냐령 사하라
+Spokane|스포캔족
+Suebi|수에비족
+Sultanate of Damagaram|다마가람 술탄국
+Sultanate of Utetera|우테테라 술탄국
+Sultanate of Zanzibar|잔지바르 술탄국
+Suom|핀란드인
+Suomi|핀란드인
+Surasena|수라세나
+Surinam|수리남
+Suriname|수리남
+Susquehanna|서스쿼해나족
+Swabia|슈바벤
+Swaziland|스와질란드
+Swedes and Goths|스웨덴인·고트족
+Swiss Confederation|스위스 연방
+Syria|시리아
+Syria (France)|시리아(프랑스 위임 통치)
+Syunik|시우니크
+Taino|타이노족
+Takrur|타크루르 왕국
+Teke|테케 왕국
+Tekrur|타크루르 왕국
+Teton|테톤 수족
+Teutonic Knights|튜턴 기사단국
+Thai Kingdoms|타이 왕국들
+Thrace|트라키아
+Thuringia|튀링겐
+Tiahuanaco Empire|티와나쿠 문명
+Timucua|티무쿠아족
+Togo|토고
+Togoland|토골란드
+Toltec Empire|톨텍 제국
+Tonga|통가
+Touareg|투아레그족
+Transvaal|트란스발
+Travancore|트라반코르
+Trebizond|트레비존드 제국
+Trinidad|트리니다드
+Tripolitana (UK Lybia)|트리폴리타니아(영국 관리)
+Tripolitania|트리폴리타니아
+Trucial Oman|휴전 오만
+Tuareg Nomadic Tribes|투아레그 유목 부족들
+Tuaregs|투아레그족
+Tukular Caliphate|투쿨로르 제국
+Tunis|튀니스
+Tupis|투피족
+Turan|투란
+Turingians|튀링겐족
+Turkish Cypriot-administered area|북키프로스
+Turks and Caicos Islands|터크스 케이커스 제도
+Tuscany|토스카나
+Tuʻi Tonga Empire|투이통가 제국
+UK|영국
+USA|미국
+Uganda|우간다
+Union of South Africa|남아프리카 연방
+United Arab Emirates|아랍 에미리트
+United Kingdom of Great Britain and Ireland|그레이트브리튼 아일랜드 연합 왕국
+United Kingdom of Netherlands|네덜란드 연합 왕국
+United Provinces of the Río de la Plata|리오데라플라타 연합주
+United States Virgin Islands|미국령 버진아일랜드
+Ur|우르
+Urartu|우라르투
+Ute|유트족
+Vakataka|바카타카 왕조
+Valdivia|발디비아 문화
+Vallabhi|발라비
+Vasconia|바스코니아
+Vatsa|바차
+Vazimba|바짐바족
+Venetia|베네치아
+Vengi|벵기
+Veps|벱스족
+Veracruz civilization|베라크루스 문명
+Viceroyalty of New Granada|누에바그라나다 부왕령
+Viceroyalty of the Río de la Plata|리오데라플라타 부왕령
+Victoria (UK)|빅토리아(영국령)
+Virgin Islands (Danemark)|버진아일랜드(덴마크령)
+Virgin Islands (UK)|버진아일랜드(영국령)
+Virginia|버지니아
+Vishnu-Kundins|비슈누쿤딘 왕조
+Visigothic Kingdom|서고트 왕국
+Wadai|와다이 술탄국
+Wadai Empire|와다이 술탄국
+Walbis Bay|월비스베이
+Waldeck|발데크
+Wallis and Futuna Islands|왈리스 푸투나
+Wassoulou Empire|와술루 제국
+Watassid Morocco|와타스 왕조 모로코
+Wattasid Caliphate|와타스 왕조
+Welsh|웨일스인
+Wessex|웨식스 왕국
+West Francia|서프랑크 왕국
+West Germany|서독
+West Getaes|서게타이족
+Western Australia (UK)|웨스턴오스트레일리아(영국령)
+Western Chalukyas|서찰루키아 왕조
+Western Gangas|서강가 왕조
+Western Sahara|서사하라
+Wetzlar|베츨라어
+White Russia|백러시아
+Wichita|위치타족
+Winebago|위네바고족
+Württemberg|뷔르템베르크
+Xhosa|코사족
+Yakima|야키마족
+Yemen (UK)|예멘(영국령)
+Yokuts|요쿠츠족
+Yolngu|욜릉구족
+Yugoslavia|유고슬라비아
+Yukagir|유카기르족
+Yuma|유마족
+Yup'ik & Cup'ik|유피크족
+Zacatecs|사카테코족
+Zaire (Belgium)|자이르(벨기에령)
+Zanzibar|잔지바르
+Zapotec|사포텍 문명
+Zapotec Empire|사포텍 문명
+Zayyanid Caliphate|자이얀 왕조
+Zimbabwe|짐바브웨
+Zulu|줄루 왕국
+Zululand|줄루란드
+Zuni|주니족
+city-states|도시 국가들
+minor Hindu and Buddhist kingdoms|힌두·불교 소왕국들
+minor Hindu and Buddhist states|힌두·불교 소국들
+minor Hindu kingdoms|힌두 소왕국들
+minor states|소국들
+minor states under Indian influence|인도 문화권 소국들
+state societies and Aramaean kingdoms|아람 왕국들
+Únětice|우네티체 문화
+Kingdom of Kapisa|카피사 왕국
+Kingdom of Sind|신드 왕국
+Satavahanihara|사타바하나 왕조
+Kalinga|칼링가
+Gurjara Pratihara|구르자라·프라티하라 왕조
+Kalinago|칼리나고족
+Kerma|케르마 왕국
+Hejaz|헤자즈
+Syria|시리아
+Huns|훈족
+# prehistoric cultures and peoples
+Adena Culture|아데나 문화
+Amazon hunter-gatherers|아마존 수렵채집민
+Andean hunter-gatherers|안데스 수렵채집민
+Arabian pastoral nomads|아라비아 유목민
+Archaic Amerindian hunter-gatherers|고대 아메리카 원주민 수렵채집민
+Arctic marine mammal hunters|북극 바다짐승 사냥꾼
+Ato trading confederacy|아토 교역 연맹
+Australian aboriginal hunter-gatherers|오스트레일리아 원주민 수렵채집민
+Austro-Asiatic rice cultures|오스트로아시아계 벼농사 문화
+Bell-shaped burials culture|종 모양 무덤 문화
+Borgu States|보르구 국가들
+Brushed Pottery culture|빗질무늬 토기 문화
+Caloosahatchee culture|칼루사해치 문화
+Caribbean hunter-gatherers|카리브 수렵채집민
+Catacomb culture|카타콤 문화
+Chernoles culture|체르노리스 문화
+Chinchorro culture|친초로 문화
+Couture Complex|쿠튀르 문화
+Dakapeng culture|다펀컹 문화
+Dapenkeng culture|다펀컹 문화
+Desert hunter-gatherers|사막 수렵채집민
+Dyungungoo (Gubbi Gubbi)|구비구비족
+Eastern Masurian culture|동마주리아 문화
+Eastern North American hunter-gatherers|북아메리카 동부 수렵채집민
+Ethiopian highland farmers|에티오피아 고원 농경민
+Finno-Ugric taiga hunter-gatherers|핀·우그리아계 타이가 수렵채집민
+Fourche Maline Culture|푸르시말린 문화
+Gandhara grave culture|간다라 무덤 문화
+Glades Culture|글레이즈 문화
+Goodall Focus|구달 문화
+Hallstatt culture|할슈타트 문화
+Hopewell Culture|호프웰 문화
+Hunters-gatherers|수렵채집민
+Iranian pastoralists|이란계 유목민
+Iron Age megalith cultures|철기 시대 거석 문화
+Karasuk culture|카라수크 문화
+La Tène culture|라텐 문화
+Lusatian culture|루사티아 문화
+Maize farmers|옥수수 농경민
+Manioc farmers|카사바 농경민
+Marksville Culture|마크스빌 문화
+Mesoamerican hunter-gatherers and maïze farmers|메소아메리카 수렵채집·옥수수 농경민
+Middag Kingdom|미다그 왕국
+Mill Creek Culture|밀크리크 문화
+Milograd culture|밀로그라드 문화
+N. European Bronze Age cultures|북유럽 청동기 문화
+North American Pacific foraging, hunting and fishing peoples|북아메리카 태평양 연안 채집·수렵·어로민
+Paleo-Siberian hunter-gatherers|고대 시베리아 수렵채집민
+Pampas cultures|팜파스 문화
+Papuan neolithic farmers|파푸아 신석기 농경민
+Patagonian shellfish and marine mammal hunters|파타고니아 조개·바다짐승 사냥꾼
+Plain bison hunters|대평원 들소 사냥꾼
+Plain-Pottery culture|민무늬 토기 문화
+Plateau fichers and hunter gatherers|고원 어로·수렵채집민
+Pomeranian culture|포메른 문화
+Poverty point culture|파버티포인트 문화
+Proto-Scythian culture|원시 스키타이 문화
+Proto-Thai cultures|원시 타이 문화
+Proto-Tibetan cultures|원시 티베트 문화
+Saharan pastoral nomads|사하라 유목민
+Sambian-Nothangian culture|잠비아·나탕기아 문화
+Saugeen Complex|소긴 문화
+Savanna hunter-gatherers|사바나 수렵채집민
+Shellfish gatherers|조개 채집민
+Subarctic forest hunter-gatherers|아북극 숲 수렵채집민
+Swift Creek Culture|스위프트크리크 문화
+Tasmanian hunter-gatherers|태즈메이니아 수렵채집민
+Thul Garrie Waja (Bindal)|빈달족
+Urnfield cultures|언필드 문화
+West African cereal farmers|서아프리카 곡물 농경민
+Western Masurian culture|서마주리아 문화
+Yamnaya culture|얌나야 문화
+Delagoa Bay|델라고아만
+Cayenne|카옌
+Cotonou|코토누
+Cuxhaven|쿡스하펜
+Fivizzano|피비차노
+Anhalt|안할트
+Massa|마사
+Pontremoli|폰트레몰리
+Lucca|루카
+Nassau|나사우
+Northern Yuan|북원

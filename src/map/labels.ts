@@ -3,6 +3,9 @@ import type maplibregl from 'maplibre-gl';
 export interface LabelItem { id: string; lon: number; lat: number; text: string; cls?: string; pri: number; sub?: string; minZoom?: number }
 
 const DEG = Math.PI / 180;
+let fadeMs = 400;
+/** Duration of the label fade in/out (matches the border crossfade). */
+export function setLabelFade(ms: number): void { fadeMs = ms; }
 function angularDistance(lon1: number, lat1: number, lon2: number, lat2: number): number {
   const a = Math.sin(((lat2 - lat1) * DEG) / 2) ** 2 + Math.cos(lat1 * DEG) * Math.cos(lat2 * DEG) * Math.sin(((lon2 - lon1) * DEG) / 2) ** 2;
   return (2 * Math.asin(Math.min(1, Math.sqrt(a)))) / DEG;
@@ -15,6 +18,7 @@ function angularDistance(lon1: number, lat1: number, lon2: number, lat2: number)
 export class LabelLayer {
   private items: LabelItem[] = [];
   private els = new Map<string, { el: HTMLDivElement; w: number; h: number }>();
+  private dying = new Map<string, { el: HTMLDivElement; timer: number }>();
   private root: HTMLDivElement;
   private raf = 0;
   constructor(private map: maplibregl.Map, parent: HTMLElement, className = 'labels') {
@@ -26,24 +30,38 @@ export class LabelLayer {
   setItems(items: LabelItem[]): void {
     this.items = [...items].sort((a, b) => b.pri - a.pri);
     const keep = new Set(items.map((i) => i.id));
-    for (const [id, e] of this.els) if (!keep.has(id)) { e.el.remove(); this.els.delete(id); }
+    // Labels that leave fade out in place, then are removed.
+    for (const [id, e] of this.els) if (!keep.has(id)) {
+      this.els.delete(id);
+      e.el.classList.add('gone');
+      this.dying.set(id, { el: e.el, timer: window.setTimeout(() => { e.el.remove(); this.dying.delete(id); }, fadeMs + 50) });
+    }
+    const fresh: HTMLDivElement[] = [];
     for (const it of this.items) {
       let e = this.els.get(it.id);
+      const d = this.dying.get(it.id);
+      if (!e && d) {
+        clearTimeout(d.timer); this.dying.delete(it.id);
+        e = { el: d.el, w: 0, h: 0 }; this.els.set(it.id, e); fresh.push(d.el);
+      }
       const html = `<span class="dot"></span><span class="leader"></span><span class="txt">${escapeHtml(it.text)}${it.sub ? `<small>${escapeHtml(it.sub)}</small>` : ''}</span>`;
       if (!e) {
         const el = document.createElement('div');
-        el.className = `lbl ${it.cls ?? ''}`;
+        el.className = `lbl gone ${it.cls ?? ''}`;
         el.innerHTML = html;
         this.root.appendChild(el);
+        fresh.push(el);
         e = { el, w: 0, h: 0 };
         this.els.set(it.id, e);
       } else if (e.el.dataset.t !== it.text + (it.sub ?? '')) {
         e.el.innerHTML = html;
-        e.el.className = `lbl ${it.cls ?? ''}`;
+        e.el.className = `lbl ${e.el.classList.contains('gone') ? 'gone ' : ''}${it.cls ?? ''}`;
         e.w = 0;
       }
       e.el.dataset.t = it.text + (it.sub ?? '');
     }
+    // Fade new labels in once they have been placed (two frames: place, then transition).
+    if (fresh.length) requestAnimationFrame(() => requestAnimationFrame(() => fresh.forEach((el) => el.classList.remove('gone'))));
     this.schedule();
   }
   setVisible(v: boolean): void { this.root.style.display = v ? '' : 'none'; }

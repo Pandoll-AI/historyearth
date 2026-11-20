@@ -8,9 +8,38 @@ export const DEM_TILES = 'https://s3.amazonaws.com/elevation-tiles-prod/terrariu
 const SAT_ATTR = '<a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless</a> by EOX (Copernicus Sentinel data 2016, CC BY 4.0)';
 const BM_ATTR = 'Blue Marble: <a href="https://earthobservatory.nasa.gov/features/BlueMarble" target="_blank" rel="noopener">NASA Earth Observatory</a> via GIBS (public domain)';
 const DEM_ATTR = 'Terrain: <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener">AWS Terrain Tiles</a> (SRTM, GMTED, ETOPO1 등)';
-const DATA_ATTR = '국경: <a href="https://github.com/aourednik/historical-basemaps" target="_blank" rel="noopener">historical-basemaps</a> (GPL-3.0), Natural Earth · 한국사 영역: 자체 작성(대략적)';
+const DATA_ATTR = '국경: <a href="https://github.com/aourednik/historical-basemaps" target="_blank" rel="noopener">historical-basemaps</a> (GPL-3.0), Natural Earth · 한국사 영역: 자체 작성';
+
+/** Border layers that crossfade on a year change, with their full (unfaded) opacity. */
+export const FADE_LAYERS: Record<string, { prop: string; stops: number[] | number }> = {
+  'hist-fill': { prop: 'fill-opacity', stops: [4, 0.6, 7, 0.4, 9, 0.18, 11, 0.06] },
+  'korea-fill': { prop: 'fill-opacity', stops: [4, 0.66, 7, 0.45, 9, 0.2, 11, 0.08] },
+  'hist-casing': { prop: 'line-opacity', stops: 0.55 },
+  'hist-line': { prop: 'line-opacity', stops: 0.9 },
+  'korea-casing': { prop: 'line-opacity', stops: 0.65 },
+  'korea-line': { prop: 'line-opacity', stops: 0.95 },
+};
+/** Opacity value for a fade layer scaled by f in [0, 1]. */
+export function fadeOpacity(id: string, f: number): any {
+  const { stops } = FADE_LAYERS[id];
+  if (typeof stops === 'number') return stops * f;
+  const out: any[] = ['interpolate', ['linear'], ['zoom']];
+  for (let i = 0; i < stops.length; i += 2) out.push(stops[i], stops[i + 1] * f);
+  return out;
+}
 
 export function buildStyle(): StyleSpecification {
+  const style = buildBaseStyle();
+  // Each fade layer gets a "-prev" twin (just below it) fed by the previous year's data.
+  for (const id of Object.keys(FADE_LAYERS)) {
+    const i = style.layers.findIndex((l) => l.id === id);
+    const l = style.layers[i] as any;
+    style.layers.splice(i, 0, { ...l, id: `${id}-prev`, source: `${l.source}Prev`, paint: { ...l.paint, [FADE_LAYERS[id].prop]: fadeOpacity(id, 0) } });
+  }
+  return style;
+}
+
+function buildBaseStyle(): StyleSpecification {
   return {
     version: 8,
     projection: { type: 'globe' },
@@ -21,6 +50,8 @@ export function buildStyle(): StyleSpecification {
       demShade: { type: 'raster-dem', tiles: [DEM_TILES], tileSize: 256, maxzoom: 12, encoding: 'terrarium' },
       hist: { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, attribution: DATA_ATTR },
       korea: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
+      histPrev: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
+      koreaPrev: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
       modern: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
       rivers: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
       jet: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
