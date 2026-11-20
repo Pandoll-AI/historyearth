@@ -31,3 +31,4 @@
 - 11-21 04:45 빌드 통과, Vitest 41/41(해안 검사 포함), Playwright 15/15(2개는 실험용 건너뜀). 성능(박스·GPU 없음): 첫 화면 데스크톱 12.1→15.7s, 모바일 13.4→13.5s, 정지 FPS 2.2→1.9(소프트웨어 렌더링 오차 범위)
 - 11-21 05:05 Vercel 운영 재배포 dpl_3fChJqyboAMqBR17VfjYLRp2ySq1(해안 수정), curl 200(index·sea-fix·1200·JS), 1200.json SHA 일치 docs/screenshots/coastfit/live_desktop_china_z6.png, docs/screenshots/coastfit/live_desktop_india_z6.png
 - 11-21 05:30 라이브 Playwright 15/15(2개 건너뜀). 라이브 성능(박스·GPU 없음): 첫 화면 데스크톱 17.6→22.2s, 모바일 15.2→15.2s, 정지 FPS 2.1→2.0
+- 11-21 06:47 GitHub 푸시 완료: Pandoll-AI/historyearth master = a4555d0, 파일 252개 일치, 박스에서 git push(토큰은 환경변수만, 설정에 저장 안 함). 저장소는 아직 public
