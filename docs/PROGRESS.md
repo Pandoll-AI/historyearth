@@ -30,3 +30,4 @@
 - 11-21 04:20 해안선 맞춤 검사(scripts/check-coast-fit.py) 추가. 원인: 국경 데이터는 NE 10m 해안에 맞았고(넘침 최대 2.95km), 갈색 띠는 배경 Blue Marble의 탁한 바닷물(창장 하구·캄베이만 등). 탁한 바다 가림층(sea-fix.json)과 국경 최종 육지 클립 적용. 배경 잔여 689,854→7 km², 국경 최대 2.95→2.14km docs/screenshots/coastfit/after_desktop_china_z6.png, docs/screenshots/coastfit/after_desktop_india_z6.png
 - 11-21 04:45 빌드 통과, Vitest 41/41(해안 검사 포함), Playwright 15/15(2개는 실험용 건너뜀). 성능(박스·GPU 없음): 첫 화면 데스크톱 12.1→15.7s, 모바일 13.4→13.5s, 정지 FPS 2.2→1.9(소프트웨어 렌더링 오차 범위)
 - 11-21 05:05 Vercel 운영 재배포 dpl_3fChJqyboAMqBR17VfjYLRp2ySq1(해안 수정), curl 200(index·sea-fix·1200·JS), 1200.json SHA 일치 docs/screenshots/coastfit/live_desktop_china_z6.png, docs/screenshots/coastfit/live_desktop_india_z6.png
+- 11-21 05:30 라이브 Playwright 15/15(2개 건너뜀). 라이브 성능(박스·GPU 없음): 첫 화면 데스크톱 17.6→22.2s, 모바일 15.2→15.2s, 정지 FPS 2.1→2.0
