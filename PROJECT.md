@@ -53,3 +53,4 @@ updated: 2026-11-21
 - 2026-11-20 지도 품질 개선(10m 해안선, 한반도 경계 재작성, Blue Marble·음영, 라벨) + 8px 격자 정렬·정렬 검사 테스트. Vercel 운영 배포·라이브 검증 13/13. GitHub 푸시는 커넥터 저장소 생성 권한 부족으로 보류
 - 2026-11-21 t7u 반영: 국경 정밀화(10m 국경·강 맞춤, 해안 채우기), 명·북원·여진 자체 영역, 한글 이름(라틴 0 테스트), 400ms 크로스페이드, 단순화 실험 DP 1km 선택, 운영 재배포 dpl_By1Z3LNnvkiWE8JhAeqRLGdeNpfG
 - 2026-11-21 2026-11-21 최종 정리 커밋, 라이브 https://historyearth.vercel.app (dpl_By1Z3LNnvkiWE8JhAeqRLGdeNpfG)
+- 2026-11-21 GitHub 푸시 실패: user-GitHub-xai 쓰기 403, 박스 gh 미로그인, 저장소는 현재 public. 설정은 변경하지 않음. origin만 추가.
